@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.DAO;
 
 
 public class Main extends Application {
@@ -16,11 +17,12 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
+            DAO.getInstance();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../PlayView.fxml"));
+            loader.setLocation(getClass().getResource("../ProfileView.fxml"));
             AnchorPane mainView = loader.load();
             Scene scene = new Scene(mainView);
-            stage.setTitle("MIDI Ear Trainer");
+            stage.setTitle("MIDI Ear Trainer - Profile");
             stage.setScene(scene);
             stage.show();
 
