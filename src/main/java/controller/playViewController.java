@@ -8,6 +8,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.DAO;
 import model.NotePlayer;
 
 import java.util.Random;
@@ -15,7 +16,7 @@ import java.util.Random;
 public class playViewController {
     private NotePlayer notePlayer;
     private int rand1, rand2;
-    private int correctInterval, chosenInterval;
+    private int correctInterval, selectedInterval;
     private boolean buttonPressed, notesPlaying, answerChecked;
     @FXML
     private Button playButton;
@@ -37,7 +38,7 @@ public class playViewController {
         }
         intervalChoiceBox.setOnAction(event -> {
             if (!answerChecked) {
-                chosenInterval = (int) intervalChoiceBox.getSelectionModel().getSelectedItem();
+                selectedInterval = (int) intervalChoiceBox.getSelectionModel().getSelectedItem();
                 checkIfAnswerCorrect();
                 intervalChoiceBox.getSelectionModel().clearSelection();
             }
@@ -93,17 +94,15 @@ public class playViewController {
 
     private void checkIfAnswerCorrect() {
         if (!answerChecked) {
-            if (buttonPressed && chosenInterval == correctInterval) {
-                wrongAnswerLabel.setText("Oikein");
+            if (buttonPressed && selectedInterval == correctInterval) {
+                wrongAnswerLabel.setText("Correct!");
             } else {
-                wrongAnswerLabel.setText("Väärin. Oikea intervalli oli " + correctInterval);
+                wrongAnswerLabel.setText("Wrong. Correct interval was " + correctInterval);
             }
         }
         answerChecked = true;
         intervalChoiceBox.setDisable(true);
-        //playButton.setDisable(false);
-
-        //playNotes();
+        DAO.getInstance().saveGame(selectedInterval, correctInterval);
     }
 
     @FXML

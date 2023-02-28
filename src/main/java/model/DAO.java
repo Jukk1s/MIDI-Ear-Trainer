@@ -19,11 +19,7 @@ public class DAO {
         try {
             connection = DriverManager.getConnection(url + "?user=" + username + "&password=" + password);
         } catch (SQLException e) {
-            do {
-                System.err.println(e.getMessage());
-                System.err.println(e.getErrorCode());
-                System.err.println(e.getSQLState());
-            } while (e.getNextException() != null);
+            System.err.println(e.getMessage());
         }
     }
 
@@ -33,26 +29,21 @@ public class DAO {
         }
         return daoInstance;
     }
-    /*
-    public boolean saveGame() {
-        try {
-            String query = "INSERT INTO  FROM User WHERE UserID = 1";
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query);
-            if (rs.next()) {
-                String username = rs.getString(1);
-                System.out.println(username);
-            }
 
+    public boolean saveGame(int selectedInterval, int correctInterval) {
+        try {
+            long now = System.currentTimeMillis();
+            Timestamp timestamp = new Timestamp(now);
+            String query = "INSERT INTO Game (PlayedAt, SelectedInterval, CorrectInterval, UserID) " +
+                    "VALUES ('"+timestamp+"', "+selectedInterval+", "+correctInterval+", 1)";
+            Statement statement = connection.createStatement();
+            statement.executeQuery(query);
+            return true;
 
         } catch (SQLException e) {
-            do {
-                System.err.println("Viesti: "+e.getMessage());
-                System.err.println("Virhekoodi: "+e.getErrorCode());
-                System.err.println("SQL-tilakoodi: "+e.getSQLState());
-            } while (e.getNextException() != null);
+            System.err.println(e.getMessage());
         }
-        return true;
-    } */
+        return false;
+    }
 
 }
