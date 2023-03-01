@@ -3,13 +3,14 @@ package model;
 public class User {
     private static int clickCount;
     private static int correctCount;
-    private static int biggestFlaw;
     private static double accuracy;
+    private static int biggestFlaw;
 
-    public static void setUserData(int timesClicked, int timesCorrect) {
+    public static void setUserData(int timesClicked, int timesCorrect, int biggestFlaw) {
         User.clickCount = timesClicked;
         User.correctCount = timesCorrect;
         User.accuracy = (double)correctCount/clickCount*100;
+        User.biggestFlaw = biggestFlaw;
     }
 
     public static void increaseClickCount() {

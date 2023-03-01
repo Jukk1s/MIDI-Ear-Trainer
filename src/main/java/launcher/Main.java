@@ -18,7 +18,7 @@ public class Main extends Application {
     public void start(Stage stage) {
         try {
             DAO.getInstance();
-            DAO.login();
+            DAO.analyzeAndSetUserGameData();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("../ProfileView.fxml"));
             AnchorPane mainView = loader.load();

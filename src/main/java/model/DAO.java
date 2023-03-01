@@ -1,7 +1,8 @@
 package model;
 
 import java.sql.*;
-import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DAO {
@@ -10,6 +11,7 @@ public class DAO {
     private static Connection connection;
 
     private static DAO daoInstance = null;
+
 
     private DAO() {
         reader = ResourceBundle.getBundle("dbconfig");
@@ -31,27 +33,41 @@ public class DAO {
         return daoInstance;
     }
 
-    public static boolean login() {
+    private static ResultSet loadUserGameData() {
         try {
             String query = "SELECT * FROM Game WHERE UserID = 1";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
-
-            int totalCount = 0;
-            int correctCount = 0;
-            while (rs.next()) {
-                if (rs.getInt("SelectedInterval") == rs.getInt("CorrectInterval")) {
-                    correctCount++;
-                }
-                totalCount++;
-            }
-
-            User.setUserData(totalCount, correctCount);
+            return rs;
 
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
-        return false;
+        return null;
+    }
+
+    public static void analyzeAndSetUserGameData() {
+        ResultSet rs = loadUserGameData();
+        List<Game> playedGames = null;
+        try {
+            playedGames = new ArrayList<>(rs.getMetaData().getColumnCount());
+            while (rs.next()) {
+                Game game = new Game();
+                game.setUserID(rs.getInt("UserID"));
+                game.setSelectedInterval(rs.getInt("SelectedInterval"));
+                game.setCorrectInterval(rs.getInt("CorrectInterval"));
+                game.setPlayedAt(rs.getTimestamp("playedAt"));
+                playedGames.add(game);
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+        int totalCount = DataAnalyzer.findClickCount(playedGames);
+        int correctCount = DataAnalyzer.findCorrectCount(playedGames);
+        int biggestFlaw = DataAnalyzer.findBiggestFlaw(playedGames);
+
+        User.setUserData(totalCount, correctCount, biggestFlaw);
     }
 
     public boolean saveGame(int selectedInterval, int correctInterval) {
