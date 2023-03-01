@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 public class DAO {
@@ -30,6 +31,32 @@ public class DAO {
         return daoInstance;
     }
 
+    public static boolean login() {
+        try {
+            String query = "SELECT * FROM Game WHERE UserID = 1";
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            int totalCount = 0;
+            int correctCount = 0;
+            while (rs.next()) {
+                if (rs.getInt("SelectedInterval") == rs.getInt("CorrectInterval")) {
+                    correctCount++;
+                }
+                totalCount++;
+            }
+            double accuracy = (double)correctCount/totalCount*100;
+            User.setUserData(totalCount, accuracy);
+            /*
+            System.out.println(correctCount + "\n");
+            System.out.println(totalCount);*/
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return false;
+    }
+
     public boolean saveGame(int selectedInterval, int correctInterval) {
         try {
             long now = System.currentTimeMillis();
@@ -45,5 +72,4 @@ public class DAO {
         }
         return false;
     }
-
 }
