@@ -10,7 +10,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.User;
 
-import java.io.IOException;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
@@ -19,12 +18,28 @@ public class profileViewController {
     @FXML
     private Button goToPlayViewButton;
     @FXML
-    private Label timesClickedLabel;
+    private Label clickCountLabel;
     @FXML
     private Label accuracyLabel;
 
+    public static Label static_clickCountLabel;
+
+    public static Label static_accuracyLabel;
+
     public void initialize() {
-        timesClickedLabel.setText(String.valueOf(User.getTimesClicked()));
+        setClickCountLabel();
+        setAccuracyLabel();
+
+        static_clickCountLabel = clickCountLabel;
+        static_accuracyLabel = accuracyLabel;
+    }
+
+    public void setClickCountLabel() {
+        clickCountLabel.setText(String.valueOf(User.getClickCount()));
+        System.out.println(String.valueOf(User.getClickCount()));
+    }
+
+    public void setAccuracyLabel() {
         DecimalFormat df = new DecimalFormat("##");
         df.setRoundingMode(RoundingMode.HALF_UP);
         String accuracy = df.format(User.getAccuracy());

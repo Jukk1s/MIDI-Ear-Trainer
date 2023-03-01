@@ -45,11 +45,8 @@ public class DAO {
                 }
                 totalCount++;
             }
-            double accuracy = (double)correctCount/totalCount*100;
-            User.setUserData(totalCount, accuracy);
-            /*
-            System.out.println(correctCount + "\n");
-            System.out.println(totalCount);*/
+
+            User.setUserData(totalCount, correctCount);
 
         } catch (SQLException e) {
             System.err.println(e.getMessage());

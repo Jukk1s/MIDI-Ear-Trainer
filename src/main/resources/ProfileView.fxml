@@ -50,13 +50,13 @@
               </rowConstraints>
                <children>
                   <Label text="Times clicked:" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Label fx:id="timesClickedLabel" prefHeight="15.0" prefWidth="0.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Label fx:id="clickCountLabel" prefHeight="17.0" prefWidth="38.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Accuracy:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <Label fx:id="accuracyLabel" text="0 %" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Label fx:id="accuracyLabel" prefHeight="17.0" prefWidth="38.0" text="0 %" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                   <Label text="Biggest flaw" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                   <Button fx:id="biggestFlawButton" mnemonicParsing="false" text="6th interval" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                   <ChoiceBox prefHeight="25.0" prefWidth="77.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />

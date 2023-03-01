@@ -10,10 +10,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.DAO;
 import model.NotePlayer;
+import model.User;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Random;
 
-public class playViewController {
+public class playViewController extends profileViewController {
     private NotePlayer notePlayer;
     private int rand1, rand2;
     private int correctInterval, selectedInterval;
@@ -25,15 +28,15 @@ public class playViewController {
     @FXML
     private Label wrongAnswerLabel;
 
-
     public void initialize() {
         notePlayer = new NotePlayer();
         answerChecked = true;
         setChoiceBoxItems();
+        intervalChoiceBox.setDisable(true);
     }
 
     public void setChoiceBoxItems() {
-        for (int i = 1; i < 13 ; i++) {
+        for (int i = 1; i < 13; i++) {
             intervalChoiceBox.getItems().add(i);
         }
         intervalChoiceBox.setOnAction(event -> {
@@ -42,9 +45,9 @@ public class playViewController {
                 checkIfAnswerCorrect();
                 intervalChoiceBox.getSelectionModel().clearSelection();
             }
-
         });
-}
+    }
+
     public void generateNotes() {
         Random rand = new Random();
         rand1 = rand.nextInt(73 - 60) + 60;
@@ -54,6 +57,7 @@ public class playViewController {
 
         calculateInterval(rand1, rand2);
     }
+
     public void initPlayNotes() {
         if (notesPlaying) {
             return;
@@ -67,7 +71,6 @@ public class playViewController {
         answerChecked = false;
 
         playNotes();
-
     }
 
     private void playNotes() {
@@ -96,13 +99,24 @@ public class playViewController {
         if (!answerChecked) {
             if (buttonPressed && selectedInterval == correctInterval) {
                 wrongAnswerLabel.setText("Correct!");
+                User.increaseCorrectCount();
             } else {
                 wrongAnswerLabel.setText("Wrong. Correct interval was " + correctInterval);
             }
         }
         answerChecked = true;
         intervalChoiceBox.setDisable(true);
+
         DAO.getInstance().saveGame(selectedInterval, correctInterval);
+        User.increaseClickCount();
+        User.setAccuracy();
+
+        DecimalFormat df = new DecimalFormat("##");
+        df.setRoundingMode(RoundingMode.HALF_UP);
+        String accuracy = df.format(User.getAccuracy());
+        static_accuracyLabel.setText(accuracy + " %");
+        static_clickCountLabel.setText(String.valueOf(User.getClickCount()));
+
     }
 
     @FXML
@@ -119,6 +133,6 @@ public class playViewController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
 
+    }
 }
