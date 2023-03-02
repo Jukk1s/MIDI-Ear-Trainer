@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.DAO;
+import model.TimePeriod;
 
 /**
  * Class that launches the application.
@@ -22,13 +23,14 @@ public class Main extends Application {
     public void start(Stage stage) {
         try {
             DAO.getInstance();
-            DAO.analyzeAndSetUserGameData();
+            DAO.loadUserGameData(TimePeriod.All);
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("../ProfileView.fxml"));
             AnchorPane mainView = loader.load();
             Scene scene = new Scene(mainView);
-            stage.setTitle("MIDI Ear Trainer - Profile");
+            stage.setTitle("MIDI Ear Trainer");
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
 
         } catch (Exception e){

@@ -43,28 +43,24 @@ public class DAO {
     }
 
     /**
-     * Loads all user game data from the database.
-     * @return user game data
-     */
-    private static ResultSet loadUserGameData() {
-        try {
-            String query = "SELECT * FROM Game WHERE UserID = 1";
-            Statement stmt = connection.createStatement();
-            return stmt.executeQuery(query);
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-        return null;
-    }
-
-    /**
      * Loads all user game data from the database and builds an ArrayList from the data.
      * Calls for methods of DataAnalyzer class to find relevant key figures that are set as User class variables.
      */
-    public static void analyzeAndSetUserGameData() {
+    public static void loadUserGameData(TimePeriod timePeriod) {
         List<Game> playedGames = null;
+
+        String query = switch (timePeriod) {
+            case All -> "SELECT * FROM Game WHERE UserID = 1";
+            case Hour -> "SELECT * FROM Game WHERE UserID = 1 AND DATE_SUB(NOW(), INTERVAL 1 HOUR) < PlayedAt";
+            case Day -> "SELECT * FROM Game WHERE UserID = 1 AND DATE_SUB(NOW(), INTERVAL 1 DAY) < PlayedAt";
+            case Week -> "SELECT * FROM Game WHERE UserID = 1 AND DATE_SUB(NOW(), INTERVAL 1 WEEK) < PlayedAt";
+            case Month -> "SELECT * FROM Game WHERE UserID = 1 AND DATE_SUB(NOW(), INTERVAL 1 MONTH) < PlayedAt";
+            case Year -> "SELECT * FROM Game WHERE UserID = 1 AND DATE_SUB(NOW(), INTERVAL 1 YEAR) < PlayedAt";
+        };
+
         try {
-            ResultSet rs = loadUserGameData();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
             playedGames = new ArrayList<>(rs.getMetaData().getColumnCount());
             while (rs.next()) {
                 Game game = new Game();
