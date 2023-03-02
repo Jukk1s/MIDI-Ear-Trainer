@@ -13,32 +13,44 @@ import model.User;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
+/**
+ * Class for controlling ProfileView.fxml
+ *
+ * @author Jukka Hallikainen
+ */
 public class profileViewController {
-
     @FXML
-    private Button goToPlayViewButton;
+    private Label clickCountLabel, accuracyLabel;
     @FXML
-    private Label clickCountLabel;
-    @FXML
-    private Label accuracyLabel;
+    private Button biggestFlawButton;
 
-    public static Label static_clickCountLabel;
+    public static Label static_clickCountLabel, static_accuracyLabel;
+    public static Button static_biggestFlawButton;
 
-    public static Label static_accuracyLabel;
-
+    /**
+     * Sets the initial values that are displayed by the FXML variables.
+     * Creates static instances of the FXML variables so that they can be accessed from playViewController.
+     */
     public void initialize() {
         setClickCountLabel();
         setAccuracyLabel();
+        setBiggestFlawButton();
 
         static_clickCountLabel = clickCountLabel;
         static_accuracyLabel = accuracyLabel;
+        static_biggestFlawButton = biggestFlawButton;
     }
 
+    /**
+     * Sets a new value for the FXML label "clickCount".
+     */
     public void setClickCountLabel() {
         clickCountLabel.setText(String.valueOf(User.getClickCount()));
-        System.out.println(String.valueOf(User.getClickCount()));
     }
 
+    /**
+     * Sets a new value for the FXML label "accuracyLabel".
+     */
     public void setAccuracyLabel() {
         DecimalFormat df = new DecimalFormat("##");
         df.setRoundingMode(RoundingMode.HALF_UP);
@@ -46,6 +58,24 @@ public class profileViewController {
         accuracyLabel.setText(accuracy + " %");
     }
 
+    /**
+     * Sets a new value for the FXML label "biggestFlawButton".
+     */
+    private void setBiggestFlawButton() {
+        if (User.getBiggestFlaw() == 1) {
+            biggestFlawButton.setText(String.valueOf(User.getBiggestFlaw()) + "st interval");
+        } else if (User.getBiggestFlaw() == 2){
+            biggestFlawButton.setText(String.valueOf(User.getBiggestFlaw()) + "nd interval");
+        } else if (User.getBiggestFlaw() == 3) {
+            biggestFlawButton.setText(String.valueOf(User.getBiggestFlaw()) + "rd interval");
+        } else {
+            biggestFlawButton.setText(String.valueOf(User.getBiggestFlaw()) + "th interval");
+        }
+    }
+
+    /**
+     * Navigates to PlayView.fxml.
+     */
     public void goToPlayView(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -61,6 +91,9 @@ public class profileViewController {
         }
     }
 
+    /**
+     * Navigates to GraphView.fxml.
+     */
     public void goToGraphView(ActionEvent actionEvent) {
     }
 }

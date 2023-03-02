@@ -2,15 +2,19 @@ package model;
 
 import java.sql.Timestamp;
 
+/**
+ * Class that represents a single played game.
+ *
+ * @author Jukka Hallikainen
+ */
 public class Game {
     private int userID;
     private int chosenInterval;
     private int correctInterval;
     private Timestamp playedAt;
 
-    public Game() {
 
-    }
+    public Game() {}
 
     public Game(int userID, int chosenInterval, int correctInterval, Timestamp timestamp) {
         this.userID = userID;

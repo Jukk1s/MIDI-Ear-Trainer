@@ -16,6 +16,11 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Random;
 
+/**
+ * Class for controlling PlayView.fxml
+ *
+ * @author Jukka Hallikainen
+ */
 public class playViewController extends profileViewController {
     private NotePlayer notePlayer;
     private int rand1, rand2;
@@ -28,6 +33,9 @@ public class playViewController extends profileViewController {
     @FXML
     private Label wrongAnswerLabel;
 
+    /**
+     * Sets initial values and states for the class members.
+     */
     public void initialize() {
         notePlayer = new NotePlayer();
         answerChecked = true;
@@ -35,6 +43,9 @@ public class playViewController extends profileViewController {
         intervalChoiceBox.setDisable(true);
     }
 
+    /**
+     * Adds (musical) interval values between 1 and 12 into ChoiceBox.
+     */
     public void setChoiceBoxItems() {
         for (int i = 1; i < 13; i++) {
             intervalChoiceBox.getItems().add(i);
@@ -48,6 +59,9 @@ public class playViewController extends profileViewController {
         });
     }
 
+    /**
+     * Generates two random notes in range of an octave.
+     */
     public void generateNotes() {
         Random rand = new Random();
         rand1 = rand.nextInt(73 - 60) + 60;
@@ -58,6 +72,10 @@ public class playViewController extends profileViewController {
         calculateInterval(rand1, rand2);
     }
 
+    /**
+     * Checks if circumstances are OK for generating and playing notes.
+     * Calls for methods to generate and play the generated notes.
+     */
     public void initPlayNotes() {
         if (notesPlaying) {
             return;
@@ -73,6 +91,9 @@ public class playViewController extends profileViewController {
         playNotes();
     }
 
+    /**
+     * Calls for NotePlayer to play two notes in new thread so that the UI doesn't freeze.
+     */
     private void playNotes() {
         new Thread(new Runnable() {
             @Override
@@ -87,6 +108,11 @@ public class playViewController extends profileViewController {
         }).start();
     }
 
+    /**
+     * Calculates the interval in semitones between provided notes.
+     * @param note1 pitch of the note translated into Integer value
+     * @param note2 pitch of the note translated into Integer value
+     */
     public void calculateInterval(int note1, int note2) {
         if (note1 > note2) {
             correctInterval = note1 - note2;
@@ -95,6 +121,10 @@ public class playViewController extends profileViewController {
         }
     }
 
+    /**
+     * Checks if user has chosen the correct answer.
+     * Updates Labels, User variables and DAO accordingly.
+     */
     private void checkIfAnswerCorrect() {
         if (!answerChecked) {
             if (buttonPressed && selectedInterval == correctInterval) {
@@ -119,6 +149,9 @@ public class playViewController extends profileViewController {
 
     }
 
+    /**
+     * Navigates to ProfileView.fxml.
+     */
     @FXML
     private void goToProfile() {
         try {

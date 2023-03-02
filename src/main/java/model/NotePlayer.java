@@ -4,10 +4,18 @@ import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Synthesizer;
 
+/**
+ * Class that plays notes.
+ *
+ * @author Jukka Hallikainen
+ */
 public class NotePlayer {
     private Synthesizer synth;
     private MidiChannel midiChannel;
 
+    /**
+     * Constructor. Initializes the player.
+     */
     public NotePlayer() {
         try {
             this.synth = MidiSystem.getSynthesizer();
@@ -16,6 +24,11 @@ public class NotePlayer {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Plays the desired note.
+     * @param note pitch of the note translated into Integer value
+     */
     public void playNote (int note) {
 
         try {

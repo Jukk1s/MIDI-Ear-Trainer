@@ -7,7 +7,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.DAO;
 
-
+/**
+ * Class that launches the application.
+ *
+ * @author Jukka Hallikainen
+ */
 public class Main extends Application {
 
     public static void main(String[] args) {
