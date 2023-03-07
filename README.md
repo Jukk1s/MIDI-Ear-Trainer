@@ -1,9 +1,9 @@
 # MIDI Ear Trainer
 
-A simple software that aims to improve user's ear for music. Under development.
+Simple software that aims to improve user's ear for music. Under development.
 
 ## Features
-- game where two random notes are played separately and the user provides his/her guess for the interval between the notes
+- game where two random notes are played separately, and the user provides his/her guess for the interval between the notes
 - profile window that shows analyzed data from played games in a chosen time period
 - graph window that displays different graphs based on analyzed game data (in the making)
 - special game that focuses on the intervals the user has most trouble with (TODO)
