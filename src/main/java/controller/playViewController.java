@@ -18,8 +18,6 @@ import java.util.Random;
 
 /**
  * Class for controlling PlayView.fxml
- *
- * @author Jukka Hallikainen
  */
 public class playViewController extends profileViewController {
     private NotePlayer notePlayer;

@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Click count and accuracy are updated on ProfileView.fxml instantly without additional database queries.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/DataAnalyzer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game.java" afterDir="false" />
+    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="SQL script error fixed.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/graphViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/GraphView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/launcher/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/launcher/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/NotePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/NotePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/TimePeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/TimePeriod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ProfileView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ProfileView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -55,10 +64,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "C:/Java-kirjastot/mariadb-java-client-3.1.2.jar",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.27931035",
-    "settings.editor.selected.configurable": "preferences.JavaFX"
+    "settings.editor.selected.configurable": "MavenSettings"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -126,7 +135,35 @@
       <option name="project" value="LOCAL" />
       <updated>1677704541723</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="JavaDoc added in all classes. Method in DataAnalyzer added to find the interval user has most trouble with, and is now displayed in ProfileView window.">
+      <created>1677722973476</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677722973476</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Time period functionality added. Now games are analyzed from the time period that the user chooses.">
+      <created>1677780065246</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677780065247</updated>
+    </task>
+    <task id="LOCAL-00008" summary="SQL script to create local database added.">
+      <created>1677782725735</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677782725735</updated>
+    </task>
+    <task id="LOCAL-00009" summary="SQL script error fixed.">
+      <created>1677787788438</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677787788438</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -135,7 +172,13 @@
     <MESSAGE value="Games are now saved into database." />
     <MESSAGE value="Total times played and average accuracy is now calculated and displayed on the ProfileView." />
     <MESSAGE value="Click count and accuracy are updated on ProfileView.fxml instantly without additional database queries." />
-    <option name="LAST_COMMIT_MESSAGE" value="Click count and accuracy are updated on ProfileView.fxml instantly without additional database queries." />
+    <MESSAGE value="JavaDoc added in all classes. Method in DataAnalyzer added to find the interval user has most trouble with, and is now displayed in the ProfileView window." />
+    <MESSAGE value="JavaDoc added in all classes. Method in DataAnalyzer added to find the interval user has most trouble with, and is now displayed in ProfileView window." />
+    <MESSAGE value="Time period functionality added. Now games are analyzed in the time period that the user chooses." />
+    <MESSAGE value="Time period functionality added. Now games are analyzed from the time period that the user chooses." />
+    <MESSAGE value="SQL script to create local database added." />
+    <MESSAGE value="SQL script error fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="SQL script error fixed." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

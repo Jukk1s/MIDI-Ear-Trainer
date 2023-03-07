@@ -1,9 +1,7 @@
 package model;
 
 /**
- * Class that introduces all the available notes. Currently, not used by the app.
- *
- * @author Jukka Hallikainen
+ * Class that introduces all the available notes. Currently, not used in the app.
  */
 public enum Note {
     A,

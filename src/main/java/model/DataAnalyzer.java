@@ -4,8 +4,6 @@ import java.util.List;
 
 /**
  * Class that works as a utility for DAO to analyze data retrieved from database.
- *
- * @author Jukka Hallikainen
  */
 public class DataAnalyzer {
 

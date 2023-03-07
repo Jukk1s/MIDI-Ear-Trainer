@@ -2,8 +2,6 @@ package model;
 
 /**
  * Class that represents the logged-in user.
- *
- * @author Jukka Hallikainen
  */
 public class User {
     private static int clickCount;

@@ -6,8 +6,6 @@ import javax.sound.midi.Synthesizer;
 
 /**
  * Class that plays notes.
- *
- * @author Jukka Hallikainen
  */
 public class NotePlayer {
     private Synthesizer synth;

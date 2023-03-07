@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.DAO;
 import model.TimePeriod;
@@ -18,8 +19,6 @@ import java.text.DecimalFormat;
 
 /**
  * Class for controlling ProfileView.fxml
- *
- * @author Jukka Hallikainen
  */
 public class profileViewController {
     @FXML
@@ -137,6 +136,18 @@ public class profileViewController {
      */
     @FXML
     public void goToGraphView(ActionEvent actionEvent) {
-        //TODO
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../GraphView.fxml"));
+            GridPane graphView = loader.load();
+            Scene scene = new Scene(graphView);
+            Stage stage = new Stage();
+            stage.setTitle("MIDI Ear Trainer - Graphs");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -4,8 +4,6 @@ import java.sql.Timestamp;
 
 /**
  * Class that represents a single played game.
- *
- * @author Jukka Hallikainen
  */
 public class Game {
     private int userID;

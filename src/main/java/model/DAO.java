@@ -7,8 +7,6 @@ import java.util.ResourceBundle;
 
 /**
  * Class that serves as a link between database and the application.
- *
- * @author Jukka Hallikainen
  */
 public class DAO {
     private final ResourceBundle reader;

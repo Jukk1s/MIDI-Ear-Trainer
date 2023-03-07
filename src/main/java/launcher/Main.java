@@ -10,8 +10,6 @@ import model.TimePeriod;
 
 /**
  * Class that launches the application.
- *
- * @author Jukka Hallikainen
  */
 public class Main extends Application {
 
