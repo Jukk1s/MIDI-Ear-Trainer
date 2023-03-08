@@ -34,7 +34,8 @@ public class DataAnalyzer {
     }
 
     /**
-     * Calculates which interval has most incorrect answers.
+     * Calculates which interval has the most incorrect answers.
+     * TODO calculate the relative amount of incorrect answers
      * @param list list of Game objects
      * @return interval that has most incorrect answers
      */

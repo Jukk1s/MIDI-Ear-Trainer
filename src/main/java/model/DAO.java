@@ -42,10 +42,10 @@ public class DAO {
 
     /**
      * Loads all user game data from the database and builds an ArrayList from the data.
-     * Calls for methods of DataAnalyzer class to find relevant key figures that are set as User class variables.
+     * @param timePeriod time frame calculated backwards from the present moment
      */
     public static void loadUserGameData(TimePeriod timePeriod) {
-        List<Game> playedGames = null;
+        ArrayList<Game> playedGames = null;
 
         String query = switch (timePeriod) {
             case All -> "SELECT * FROM Game WHERE UserID = 1";
@@ -55,6 +55,40 @@ public class DAO {
             case Month -> "SELECT * FROM Game WHERE UserID = 1 AND DATE_SUB(NOW(), INTERVAL 1 MONTH) < PlayedAt";
             case Year -> "SELECT * FROM Game WHERE UserID = 1 AND DATE_SUB(NOW(), INTERVAL 1 YEAR) < PlayedAt";
         };
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            playedGames = new ArrayList<>(rs.getMetaData().getColumnCount());
+            while (rs.next()) {
+                Game game = new Game();
+                game.setUserID(rs.getInt("UserID"));
+                game.setSelectedInterval(rs.getInt("SelectedInterval"));
+                game.setCorrectInterval(rs.getInt("CorrectInterval"));
+                game.setPlayedAt(rs.getTimestamp("playedAt"));
+                playedGames.add(game);
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+        int totalCount = DataAnalyzer.findClickCount(playedGames);
+        int correctCount = DataAnalyzer.findCorrectCount(playedGames);
+        int biggestFlaw = DataAnalyzer.findBiggestFlaw(playedGames);
+
+        User.setUserData(totalCount, correctCount, biggestFlaw);
+    }
+
+    /**
+     * Loads all user game data from the database and builds an ArrayList from the data.
+     * Calls for methods of DataAnalyzer class to find relevant key figures that are set as User class variables.
+     * @param start start date time
+     * @param end
+     */
+    public static void loadUserGameData(Timestamp start, Timestamp end) {
+        List<Game> playedGames = null;
+
+        String query = "SELECT * FROM Game WHERE UserID = 1 AND '" + start + "' <= playedAt AND '" + end + "' >= playedAt";
 
         try {
             Statement stmt = connection.createStatement();
