@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Interval comparison graph version 1.">
+    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="PlayView uses enum Intervals&#10; instead of integers.">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/graphViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/graphViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/PlayView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PlayView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataAnalyzer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678373624644</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="PlayView uses enum Intervals&#10; instead of integers.">
+      <created>1678375820377</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1678375820377</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -209,7 +213,8 @@
     <MESSAGE value="Enum fixes." />
     <MESSAGE value="Handle intervals as enums instead of integers." />
     <MESSAGE value="Interval comparison graph version 1." />
-    <option name="LAST_COMMIT_MESSAGE" value="Interval comparison graph version 1." />
+    <MESSAGE value="PlayView uses enum Intervals&#10; instead of integers." />
+    <option name="LAST_COMMIT_MESSAGE" value="PlayView uses enum Intervals&#10; instead of integers." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

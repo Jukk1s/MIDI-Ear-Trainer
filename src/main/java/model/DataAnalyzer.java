@@ -36,8 +36,7 @@ public class DataAnalyzer {
     }
 
     /**
-     * Calculates which interval has the most incorrect answers.
-     * TODO calculate the relative amount of incorrect answers
+     * Calculates which interval has relatively the most incorrect answers.
      * @param list list of Game objects
      * @return interval that has most incorrect answers
      */
@@ -63,15 +62,21 @@ public class DataAnalyzer {
                 }
             }
         }
-        int biggestValue = 0;
-        int intBiggestFlaw = 0;
+
+        double biggestFlawValue = 0;
+        Interval biggestFlaw = null;
+
         for (int i = 0; i < flawCount.length; i++) {
-            if (flawCount[i] > biggestValue) {
-                biggestValue = flawCount[i];
-                intBiggestFlaw = i;
+            int totalCount = findTotalCount(list, integerToInterval(i+1));
+
+            if (totalCount != 0) {
+                if (flawCount[i] / totalCount > biggestFlawValue) {
+                    biggestFlawValue = flawCount[i];
+                    biggestFlaw = integerToInterval(i+1);
+                }
             }
         }
-        Interval biggestFlaw = integerToInterval(intBiggestFlaw);
+
         return biggestFlaw;
     }
 
