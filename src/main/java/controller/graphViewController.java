@@ -8,12 +8,17 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model.DAO;
+import model.Game;
 import model.Interval;
 import tornadofx.control.DateTimePicker;
 
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
+
+import static model.DataAnalyzer.findCorrectCount;
+import static model.DataAnalyzer.findTotalCount;
+import static utility.TypeConverter.integerToInterval;
 
 /**
  * Class for controlling GraphView.fxml where the user can see analyzed game data in graphs.
@@ -49,7 +54,7 @@ public class graphViewController {
         dateTimePickerVBox.getChildren().add(startTimePicker);
         dateTimePickerVBox.getChildren().add(endTimePicker);
 
-        graphTypeChoiceBox.getItems().add("Note flaw comparison");
+        graphTypeChoiceBox.getItems().add("Interval comparison");
 
         //remove focus on interactive components on window startup
         Platform.runLater( () -> gridPane.requestFocus() );
@@ -57,35 +62,53 @@ public class graphViewController {
     }
 
     /**
-     * Draws a stacked bar chart that shows all the intervals, and the amount of correct and false answers
+     * Draws a stacked bar chart that shows all the intervals, with the amount of correct and false answers to each
      */
     @FXML
-    public void drawNoteFlawComparisonGraph() {
+    public void drawIntervalComparisonGraph() {
+        graphPane.getChildren().clear();
 
-        Timestamp tsStart = Timestamp.valueOf(startTimePicker.getDateTimeValue());
-        Timestamp tsEnd = Timestamp.valueOf(endTimePicker.getDateTimeValue());
+        Timestamp tsStart;
+        Timestamp tsEnd;
 
-        DAO.loadUserGameData(tsStart,tsEnd);
+        if (startTimePicker.getDateTimeValue() == null) {
+            tsStart = Timestamp.valueOf("2020-01-01 00:00:00.0");
+        } else {
+            tsStart = Timestamp.valueOf(startTimePicker.getDateTimeValue());
+        }
+        if (endTimePicker.getDateTimeValue() == null) {
+            tsEnd = Timestamp.valueOf(java.time.LocalDateTime.now());
+        } else {
+            tsEnd = Timestamp.valueOf(endTimePicker.getDateTimeValue());
+        }
+        List<Game> playedGames = DAO.loadUserGameData(tsStart, tsEnd);
 
         xAxis = new CategoryAxis();
         yAxis = new NumberAxis();
         xAxis.setLabel("Interval");
         yAxis.setLabel("Count");
+        graph = new StackedBarChart<String, Number>(xAxis, yAxis);
+        XYChart.Series<String, Number> corrects = new XYChart.Series<String, Number>();
+        XYChart.Series<String, Number> falses = new XYChart.Series<String, Number>();
+        corrects.setName("Correct");
+        falses.setName("False");
 
         List<Interval> intervalList = Arrays.asList(Interval.values());
-        System.out.println(intervalList.toString());
+        System.out.println(intervalList);
 
-        graph = new StackedBarChart<String, Number>(xAxis, yAxis);
+        for (int i = 0 ; i < intervalList.size(); i++) {
+            Interval interval = integerToInterval(i+1);
+            int correctCount = findCorrectCount(playedGames, interval);
+            corrects.getData().add(new XYChart.Data<>(interval.name(), correctCount));
 
-        XYChart.Series<String, Number> correctSeries = new XYChart.Series<String, Number>();
-        XYChart.Series<String, Number> falseSeries = new XYChart.Series<String, Number>();
-        correctSeries.setName("Correct");
-        falseSeries.setName("False");
+            int falseCount = findTotalCount(playedGames, interval) - correctCount;
+            falses.getData().add(new XYChart.Data<>(interval.name(), falseCount));
+        }
 
-        //correctSeries.
+        graph.getData().add(corrects);
+        graph.getData().add(falses);
 
-        //correctSeries.setData();
-
+        graphPane.getChildren().add(graph);
 
     }
 

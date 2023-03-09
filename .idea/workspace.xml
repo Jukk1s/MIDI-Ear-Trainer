@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Develop foundation for the graph feature further.">
+    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Handle intervals as enums instead of integers.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/graphViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/graphViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/launcher/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/launcher/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/TimePeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/TimePeriod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/GraphView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GraphView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -56,7 +56,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "C:/Java-kirjastot/mariadb-java-client-3.1.2.jar",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.27931035",
     "settings.editor.selected.configurable": "MavenSettings"
@@ -169,7 +169,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678237415860</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Enum fixes.">
+      <created>1678360353197</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1678360353197</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Handle intervals as enums instead of integers.">
+      <created>1678367248724</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678367248724</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -186,7 +200,9 @@
     <MESSAGE value="SQL script error fixed." />
     <MESSAGE value="Create frame for the graph feature. Fix JavaDoc. Adjust ProfileView.fxml window dimensions." />
     <MESSAGE value="Develop foundation for the graph feature further." />
-    <option name="LAST_COMMIT_MESSAGE" value="Develop foundation for the graph feature further." />
+    <MESSAGE value="Enum fixes." />
+    <MESSAGE value="Handle intervals as enums instead of integers." />
+    <option name="LAST_COMMIT_MESSAGE" value="Handle intervals as enums instead of integers." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

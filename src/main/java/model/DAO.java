@@ -100,7 +100,7 @@ public class DAO {
      * @param start start date time
      * @param end
      */
-    public static void loadUserGameData(Timestamp start, Timestamp end) {
+    public static List<Game> loadUserGameData(Timestamp start, Timestamp end) {
         List<Game> playedGames = null;
 
         String query = "SELECT * FROM Game WHERE UserID = 1 AND '" + start + "' <= playedAt AND '" + end + "' >= playedAt";
@@ -138,6 +138,8 @@ public class DAO {
         Interval biggestFlaw = DataAnalyzer.findBiggestFlaw(playedGames);
 
         User.setUserData(totalCount, correctCount, biggestFlaw);
+
+        return playedGames;
     }
 
     /**

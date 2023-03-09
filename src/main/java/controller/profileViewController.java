@@ -138,6 +138,7 @@ public class profileViewController {
             Stage stage = new Stage();
             stage.setTitle("MIDI Ear Trainer - Graphs");
             stage.setScene(scene);
+            stage.getScene().getStylesheets().add("styles.css");
             stage.setResizable(false);
             stage.show();
         } catch (Exception e) {
