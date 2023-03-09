@@ -7,14 +7,14 @@ import java.sql.Timestamp;
  */
 public class Game {
     private int userID;
-    private int chosenInterval;
-    private int correctInterval;
+    private Interval chosenInterval;
+    private Interval correctInterval;
     private Timestamp playedAt;
 
 
     public Game() {}
 
-    public Game(int userID, int chosenInterval, int correctInterval, Timestamp timestamp) {
+    public Game(int userID, Interval chosenInterval, Interval correctInterval, Timestamp timestamp) {
         this.userID = userID;
         this.chosenInterval = chosenInterval;
         this.correctInterval = correctInterval;
@@ -25,11 +25,11 @@ public class Game {
         this.userID = userID;
     }
 
-    public void setSelectedInterval(int chosenInterval) {
+    public void setSelectedInterval(Interval chosenInterval) {
         this.chosenInterval = chosenInterval;
     }
 
-    public void setCorrectInterval(int correctInterval) {
+    public void setCorrectInterval(Interval correctInterval) {
         this.correctInterval = correctInterval;
     }
 
@@ -41,11 +41,11 @@ public class Game {
         return userID;
     }
 
-    public int getChosenInterval() {
+    public Interval getChosenInterval() {
         return chosenInterval;
     }
 
-    public int getCorrectInterval() {
+    public Interval getCorrectInterval() {
         return correctInterval;
     }
 

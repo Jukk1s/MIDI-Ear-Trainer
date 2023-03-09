@@ -74,7 +74,7 @@ public class profileViewController {
      * Sets value for the FXML label "clickCount".
      */
     public void setClickCountLabel() {
-        clickCountLabel.setText(String.valueOf(User.getClickCount()));
+        clickCountLabel.setText(String.valueOf(User.getGameCount()));
     }
 
     /**
@@ -97,17 +97,11 @@ public class profileViewController {
     private void setBiggestFlawButton() {
         biggestFlawButton.setDisable(false);
 
-        if (User.getBiggestFlaw() == 0) {
+        if (User.getBiggestFlaw() == null) {
             biggestFlawButton.setDisable(true);
             biggestFlawButton.setText("-");
-        } else if (User.getBiggestFlaw() == 1) {
-            biggestFlawButton.setText(String.valueOf(User.getBiggestFlaw()) + "st interval");
-        } else if (User.getBiggestFlaw() == 2){
-            biggestFlawButton.setText(String.valueOf(User.getBiggestFlaw()) + "nd interval");
-        } else if (User.getBiggestFlaw() == 3) {
-            biggestFlawButton.setText(String.valueOf(User.getBiggestFlaw()) + "rd interval");
         } else {
-            biggestFlawButton.setText(String.valueOf(User.getBiggestFlaw()) + "th interval");
+            biggestFlawButton.setText(User.getBiggestFlaw().name());
         }
     }
 

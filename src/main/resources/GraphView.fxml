@@ -52,7 +52,7 @@
             <Insets left="54.0" right="54.0" />
          </GridPane.margin>
       </Pane>
-      <Button fx:id="drawButton" mnemonicParsing="false" onAction="#drawGraph" prefHeight="37.0" prefWidth="97.0" text="Draw" GridPane.halignment="RIGHT">
+      <Button fx:id="drawButton" mnemonicParsing="false" onAction="#drawNoteFlawComparisonGraph" prefHeight="37.0" prefWidth="97.0" text="Draw" GridPane.halignment="RIGHT">
          <font>
             <Font name="Arial" size="15.0" />
          </font>

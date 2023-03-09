@@ -143,7 +143,7 @@ public class playViewController extends profileViewController {
         df.setRoundingMode(RoundingMode.HALF_UP);
         String accuracy = df.format(User.getAccuracy());
         static_accuracyLabel.setText(accuracy + " %");
-        static_clickCountLabel.setText(String.valueOf(User.getClickCount()));
+        static_clickCountLabel.setText(String.valueOf(User.getGameCount()));
 
     }
 

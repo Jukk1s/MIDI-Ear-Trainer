@@ -1,21 +1,19 @@
 package controller;
 
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.chart.*;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model.DAO;
+import model.Interval;
 import tornadofx.control.DateTimePicker;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Class for controlling GraphView.fxml where the user can see analyzed game data in graphs.
@@ -32,6 +30,9 @@ public class graphViewController {
     private ChoiceBox graphTypeChoiceBox;
     @FXML
     private Pane graphPane;
+
+    private XYChart<String, Number> graph;
+    private Axis xAxis, yAxis;
 
     /**
      * Creates the DateTimePicker components and adds them into the view.
@@ -55,12 +56,35 @@ public class graphViewController {
 
     }
 
-    public void drawGraph() {
+    /**
+     * Draws a stacked bar chart that shows all the intervals, and the amount of correct and false answers
+     */
+    @FXML
+    public void drawNoteFlawComparisonGraph() {
+
         Timestamp tsStart = Timestamp.valueOf(startTimePicker.getDateTimeValue());
         Timestamp tsEnd = Timestamp.valueOf(endTimePicker.getDateTimeValue());
 
         DAO.loadUserGameData(tsStart,tsEnd);
 
+        xAxis = new CategoryAxis();
+        yAxis = new NumberAxis();
+        xAxis.setLabel("Interval");
+        yAxis.setLabel("Count");
+
+        List<Interval> intervalList = Arrays.asList(Interval.values());
+        System.out.println(intervalList.toString());
+
+        graph = new StackedBarChart<String, Number>(xAxis, yAxis);
+
+        XYChart.Series<String, Number> correctSeries = new XYChart.Series<String, Number>();
+        XYChart.Series<String, Number> falseSeries = new XYChart.Series<String, Number>();
+        correctSeries.setName("Correct");
+        falseSeries.setName("False");
+
+        //correctSeries.
+
+        //correctSeries.setData();
 
 
     }

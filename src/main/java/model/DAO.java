@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static utility.TypeConverter.integerToInterval;
+import static utility.TypeConverter.intervalToInteger;
+
 /**
  * Class that serves as a link between database and the application.
  */
@@ -60,21 +63,33 @@ public class DAO {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             playedGames = new ArrayList<>(rs.getMetaData().getColumnCount());
+
+            int intInterval;
+            Interval interval;
+
             while (rs.next()) {
                 Game game = new Game();
                 game.setUserID(rs.getInt("UserID"));
-                game.setSelectedInterval(rs.getInt("SelectedInterval"));
-                game.setCorrectInterval(rs.getInt("CorrectInterval"));
+
+                intInterval = rs.getInt("SelectedInterval");
+                interval = integerToInterval(intInterval);
+                game.setSelectedInterval(interval);
+
+                intInterval = rs.getInt("CorrectInterval");
+                interval = integerToInterval(intInterval);
+                game.setCorrectInterval(interval);
+
                 game.setPlayedAt(rs.getTimestamp("playedAt"));
                 playedGames.add(game);
             }
+
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
 
-        int totalCount = DataAnalyzer.findClickCount(playedGames);
+        int totalCount = DataAnalyzer.findTotalCount(playedGames);
         int correctCount = DataAnalyzer.findCorrectCount(playedGames);
-        int biggestFlaw = DataAnalyzer.findBiggestFlaw(playedGames);
+        Interval biggestFlaw = DataAnalyzer.findBiggestFlaw(playedGames);
 
         User.setUserData(totalCount, correctCount, biggestFlaw);
     }
@@ -94,21 +109,33 @@ public class DAO {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             playedGames = new ArrayList<>(rs.getMetaData().getColumnCount());
+
+            int intInterval;
+            Interval interval;
+
             while (rs.next()) {
                 Game game = new Game();
                 game.setUserID(rs.getInt("UserID"));
-                game.setSelectedInterval(rs.getInt("SelectedInterval"));
-                game.setCorrectInterval(rs.getInt("CorrectInterval"));
+
+                intInterval = rs.getInt("SelectedInterval");
+                interval = integerToInterval(intInterval);
+                game.setSelectedInterval(interval);
+
+                intInterval = rs.getInt("CorrectInterval");
+                interval = integerToInterval(intInterval);
+                game.setCorrectInterval(interval);
+
                 game.setPlayedAt(rs.getTimestamp("playedAt"));
                 playedGames.add(game);
             }
+
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
 
-        int totalCount = DataAnalyzer.findClickCount(playedGames);
+        int totalCount = DataAnalyzer.findTotalCount(playedGames);
         int correctCount = DataAnalyzer.findCorrectCount(playedGames);
-        int biggestFlaw = DataAnalyzer.findBiggestFlaw(playedGames);
+        Interval biggestFlaw = DataAnalyzer.findBiggestFlaw(playedGames);
 
         User.setUserData(totalCount, correctCount, biggestFlaw);
     }
