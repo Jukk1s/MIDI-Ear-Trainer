@@ -61,6 +61,8 @@ public class graphViewController {
 
         DAO.loadUserGameData(tsStart,tsEnd);
 
+
+
     }
 
 }

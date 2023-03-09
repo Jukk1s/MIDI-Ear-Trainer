@@ -5,10 +5,10 @@ package model;
  * Time periods are used to analyze game data on different periods of time.
  */
 public enum TimePeriod {
-    All,
-    Hour,
-    Day,
-    Week,
-    Month,
-    Year
+    ALL,
+    HOUR,
+    DAY,
+    WEEK,
+    MONTH,
+    YEAR
 }

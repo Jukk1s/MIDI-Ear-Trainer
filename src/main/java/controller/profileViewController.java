@@ -55,12 +55,12 @@ public class profileViewController {
         int sliderValue = (int) Math.round(timePeriodSlider.getValue());
 
         switch (sliderValue) {
-            case 1 -> period = TimePeriod.All;
-            case 2 -> period = TimePeriod.Hour;
-            case 3 -> period = TimePeriod.Day;
-            case 4 -> period = TimePeriod.Week;
-            case 5 -> period = TimePeriod.Month;
-            case 6 -> period = TimePeriod.Year;
+            case 1 -> period = TimePeriod.ALL;
+            case 2 -> period = TimePeriod.HOUR;
+            case 3 -> period = TimePeriod.DAY;
+            case 4 -> period = TimePeriod.WEEK;
+            case 5 -> period = TimePeriod.MONTH;
+            case 6 -> period = TimePeriod.YEAR;
             default -> throw new IllegalStateException("Unexpected value: " + sliderValue);
         }
         timePeriodLabel.setText(period.name());
