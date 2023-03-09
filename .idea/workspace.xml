@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="PlayView uses enum Intervals&#10; instead of integers.">
+    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Biggest flaw is not calculated relatively.">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/graphViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/graphViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DataAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/TypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/EnumConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ProfileView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ProfileView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678375820377</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Biggest flaw is not calculated relatively.">
+      <created>1678376458535</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1678376458535</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -214,7 +227,8 @@
     <MESSAGE value="Handle intervals as enums instead of integers." />
     <MESSAGE value="Interval comparison graph version 1." />
     <MESSAGE value="PlayView uses enum Intervals&#10; instead of integers." />
-    <option name="LAST_COMMIT_MESSAGE" value="PlayView uses enum Intervals&#10; instead of integers." />
+    <MESSAGE value="Biggest flaw is not calculated relatively." />
+    <option name="LAST_COMMIT_MESSAGE" value="Biggest flaw is not calculated relatively." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

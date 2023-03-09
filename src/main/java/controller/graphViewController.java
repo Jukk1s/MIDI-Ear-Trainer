@@ -18,7 +18,8 @@ import java.util.List;
 
 import static model.DataAnalyzer.findCorrectCount;
 import static model.DataAnalyzer.findTotalCount;
-import static utility.TypeConverter.integerToInterval;
+import static utility.EnumConverter.integerToInterval;
+import static utility.EnumConverter.intervalToString;
 
 /**
  * Class for controlling GraphView.fxml where the user can see analyzed game data in graphs.
@@ -99,10 +100,10 @@ public class graphViewController {
         for (int i = 0 ; i < intervalList.size(); i++) {
             Interval interval = integerToInterval(i+1);
             int correctCount = findCorrectCount(playedGames, interval);
-            corrects.getData().add(new XYChart.Data<>(interval.name(), correctCount));
+            corrects.getData().add(new XYChart.Data<>(intervalToString(interval), correctCount));
 
             int falseCount = findTotalCount(playedGames, interval) - correctCount;
-            falses.getData().add(new XYChart.Data<>(interval.name(), falseCount));
+            falses.getData().add(new XYChart.Data<>(intervalToString(interval), falseCount));
         }
 
         graph.getData().add(corrects);

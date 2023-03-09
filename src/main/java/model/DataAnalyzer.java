@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-import static utility.TypeConverter.integerToInterval;
+import static utility.EnumConverter.integerToInterval;
 
 /**
  * Class that works as a utility for DAO to analyze data retrieved from database.

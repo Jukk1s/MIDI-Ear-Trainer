@@ -52,8 +52,11 @@
                 <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Times clicked:" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Label fx:id="clickCountLabel" alignment="CENTER" prefHeight="17.0" prefWidth="122.0" text="113" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Label text="Times played:" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="playCountLabel" alignment="CENTER" prefHeight="17.0" prefWidth="122.0" text="113" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font name="Arial" size="12.0" />
                      </font>

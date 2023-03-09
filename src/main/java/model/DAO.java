@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static utility.TypeConverter.integerToInterval;
-import static utility.TypeConverter.intervalToInteger;
+import static utility.EnumConverter.integerToInterval;
+import static utility.EnumConverter.intervalToInteger;
 
 /**
  * Class that serves as a link between database and the application.

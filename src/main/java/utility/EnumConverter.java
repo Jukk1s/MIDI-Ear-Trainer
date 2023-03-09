@@ -3,12 +3,12 @@ package utility;
 import model.Interval;
 
 /**
- * Class that converts Integers into Interval, and Intervals into Integer.
+ * Class that converts Interval to String and Integer, and Integer to Interval.
  */
-public class TypeConverter {
+public class EnumConverter {
 
     /**
-     * Converts Integer value into Interval
+     * Converts Integer value to Interval
      * @param value Integer to be converted
      * @return corresponding enum Interval
      */
@@ -32,7 +32,7 @@ public class TypeConverter {
     }
 
     /**
-     * Converts enum Interval into Integer.
+     * Converts Interval to Integer value.
      * @param interval Interval to be converted
      * @return corresponding Integer value
      */
@@ -55,4 +55,37 @@ public class TypeConverter {
         return value;
     }
 
+    /**
+     * Converts String value to Interval
+     * @param string String to be converted
+     * @return corresponding Interval value
+     */
+    public static Interval stringToInterval(String string) {
+        //TODO
+        return null;
+    }
+
+    /**
+     * Converts Interval to String value.
+     * @param interval Interval to be converted
+     * @return corresponding String value
+     */
+    public static String intervalToString(Interval interval) {
+        String value = null;
+        switch (interval) {
+            case MINOR_2ND -> value = "Minor 2nd";
+            case MAJOR_2ND -> value = "Major 2nd";
+            case MINOR_3RD -> value = "Minor 3rd";
+            case MAJOR_3RD -> value = "Major 3rd";
+            case PERFECT_4TH -> value = "Perfect 4th";
+            case TRITONE -> value = "Tritone";
+            case PERFECT_5TH -> value = "Perfect 5th";
+            case MINOR_6TH -> value = "Minor 6th";
+            case MAJOR_6TH -> value = "Major 6th";
+            case MINOR_7TH -> value = "Minor 7th";
+            case MAJOR_7TH -> value = "Major 7th";
+            case OCTAVE -> value = "Octave";
+        }
+        return value;
+    }
 }

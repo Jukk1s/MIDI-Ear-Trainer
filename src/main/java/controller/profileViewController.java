@@ -17,12 +17,14 @@ import model.User;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
+import static utility.EnumConverter.intervalToString;
+
 /**
  * Class for controlling ProfileView.fxml
  */
 public class profileViewController {
     @FXML
-    private Label clickCountLabel, accuracyLabel, timePeriodLabel;
+    private Label playCountLabel, accuracyLabel, timePeriodLabel;
     @FXML
     private Slider timePeriodSlider;
     @FXML
@@ -38,7 +40,7 @@ public class profileViewController {
     public void initialize() {
         setTimePeriod();
 
-        static_clickCountLabel = clickCountLabel;
+        static_clickCountLabel = playCountLabel;
         static_accuracyLabel = accuracyLabel;
         static_biggestFlawButton = biggestFlawButton;
     }
@@ -74,7 +76,7 @@ public class profileViewController {
      * Sets value for the FXML label "clickCount".
      */
     public void setClickCountLabel() {
-        clickCountLabel.setText(String.valueOf(User.getGameCount()));
+        playCountLabel.setText(String.valueOf(User.getGameCount()));
     }
 
     /**
@@ -93,6 +95,7 @@ public class profileViewController {
 
     /**
      * Sets value for the FXML label "biggestFlawButton".
+     * TODO launch special game from the button
      */
     private void setBiggestFlawButton() {
         biggestFlawButton.setDisable(false);
@@ -101,7 +104,7 @@ public class profileViewController {
             biggestFlawButton.setDisable(true);
             biggestFlawButton.setText("-");
         } else {
-            biggestFlawButton.setText(User.getBiggestFlaw().name());
+            biggestFlawButton.setText(intervalToString(User.getBiggestFlaw()));
         }
     }
 

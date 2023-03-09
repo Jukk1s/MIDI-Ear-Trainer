@@ -17,8 +17,8 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Random;
 
-import static utility.TypeConverter.integerToInterval;
-import static utility.TypeConverter.intervalToInteger;
+import static utility.EnumConverter.integerToInterval;
+import static utility.EnumConverter.intervalToString;
 
 /**
  * Class for controlling PlayView.fxml
@@ -46,7 +46,7 @@ public class playViewController extends profileViewController {
     }
 
     /**
-     * Adds (musical) interval values between 1 and 12 into ChoiceBox.
+     * Adds musical interval values between 1 and 12 into ChoiceBox.
      */
     public void setChoiceBoxItems() {
         for (int i = 0; i < 12; i++) {
@@ -134,7 +134,7 @@ public class playViewController extends profileViewController {
                 wrongAnswerLabel.setText("Correct!");
                 User.increaseCorrectCount();
             } else {
-                wrongAnswerLabel.setText("Wrong. Correct interval was " + correctInterval);
+                wrongAnswerLabel.setText("Wrong. Correct interval was " + intervalToString(correctInterval));
             }
         }
         answerChecked = true;
