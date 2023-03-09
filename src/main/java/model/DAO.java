@@ -147,12 +147,15 @@ public class DAO {
      * @param selectedInterval interval that user selected
      * @param correctInterval interval that was correct
      */
-    public void saveGame(int selectedInterval, int correctInterval) {
+    public void saveGame(Interval selectedInterval, Interval correctInterval) {
+        int intSelectedInterval = intervalToInteger(selectedInterval);
+        int intCorrectInterval = intervalToInteger(correctInterval);
+
         try {
             long now = System.currentTimeMillis();
             Timestamp timestamp = new Timestamp(now);
             String query = "INSERT INTO Game (PlayedAt, SelectedInterval, CorrectInterval, UserID) " +
-                    "VALUES ('"+timestamp+"', "+selectedInterval+", "+correctInterval+", 1)";
+                    "VALUES ('"+timestamp+"', "+intSelectedInterval+", "+intCorrectInterval+", 1)";
             Statement statement = connection.createStatement();
             statement.executeQuery(query);
 

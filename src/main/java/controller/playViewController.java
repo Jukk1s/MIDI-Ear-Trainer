@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.DAO;
+import model.Interval;
 import model.NotePlayer;
 import model.User;
 
@@ -16,13 +17,16 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Random;
 
+import static utility.TypeConverter.integerToInterval;
+import static utility.TypeConverter.intervalToInteger;
+
 /**
  * Class for controlling PlayView.fxml
  */
 public class playViewController extends profileViewController {
     private NotePlayer notePlayer;
     private int rand1, rand2;
-    private int correctInterval, selectedInterval;
+    private Interval correctInterval, selectedInterval;
     private boolean buttonPressed, notesPlaying, answerChecked;
     @FXML
     private Button playButton;
@@ -45,12 +49,13 @@ public class playViewController extends profileViewController {
      * Adds (musical) interval values between 1 and 12 into ChoiceBox.
      */
     public void setChoiceBoxItems() {
-        for (int i = 1; i < 13; i++) {
-            intervalChoiceBox.getItems().add(i);
+        for (int i = 0; i < 12; i++) {
+            Interval interval = integerToInterval(i+1);
+            intervalChoiceBox.getItems().add(interval);
         }
         intervalChoiceBox.setOnAction(event -> {
             if (!answerChecked) {
-                selectedInterval = (int) intervalChoiceBox.getSelectionModel().getSelectedItem();
+                selectedInterval = (Interval) intervalChoiceBox.getSelectionModel().getSelectedItem();
                 checkIfAnswerCorrect();
                 intervalChoiceBox.getSelectionModel().clearSelection();
             }
@@ -113,9 +118,9 @@ public class playViewController extends profileViewController {
      */
     public void calculateInterval(int note1, int note2) {
         if (note1 > note2) {
-            correctInterval = note1 - note2;
+            correctInterval = integerToInterval(note1 - note2);
         } else {
-            correctInterval = note2 - note1;
+            correctInterval = integerToInterval(note2 - note1);
         }
     }
 

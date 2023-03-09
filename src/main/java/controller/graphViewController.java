@@ -90,8 +90,8 @@ public class graphViewController {
         graph = new StackedBarChart<String, Number>(xAxis, yAxis);
         XYChart.Series<String, Number> corrects = new XYChart.Series<String, Number>();
         XYChart.Series<String, Number> falses = new XYChart.Series<String, Number>();
-        corrects.setName("Correct");
-        falses.setName("False");
+        corrects.setName("Correct answer");
+        falses.setName("Wrong answer");
 
         List<Interval> intervalList = Arrays.asList(Interval.values());
         System.out.println(intervalList);
