@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Biggest flaw is not calculated relatively.">
+    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Convert enum values into corresponding Strings&#10;to make UI look nicer.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/DataAnalyzerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/graphViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/graphViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataAnalyzer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/TypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/EnumConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ProfileView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ProfileView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +53,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "C:/Java-kirjastot/mariadb-java-client-3.1.2.jar",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.27931035",
     "settings.editor.selected.configurable": "MavenSettings"
@@ -66,10 +61,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jukka\IdeaProjects\MIDI-Ear-Trainer\src\test\java" />
       <recent name="C:\Users\Jukka\IdeaProjects\MIDI-Ear-Trainer\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.DataAnalyzerTest">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="launcher.Main" />
       <module name="MIDI-Ear-Trainer" />
@@ -84,6 +80,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DataAnalyzerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MIDI-Ear-Trainer" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DataAnalyzerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.DataAnalyzerTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -206,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678376458535</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Convert enum values into corresponding Strings&#10;to make UI look nicer.">
+      <created>1678379593776</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1678379593776</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -228,7 +245,8 @@
     <MESSAGE value="Interval comparison graph version 1." />
     <MESSAGE value="PlayView uses enum Intervals&#10; instead of integers." />
     <MESSAGE value="Biggest flaw is not calculated relatively." />
-    <option name="LAST_COMMIT_MESSAGE" value="Biggest flaw is not calculated relatively." />
+    <MESSAGE value="Convert enum values into corresponding Strings&#10;to make UI look nicer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Convert enum values into corresponding Strings&#10;to make UI look nicer." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
