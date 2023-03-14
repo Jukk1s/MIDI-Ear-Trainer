@@ -28,7 +28,6 @@ public class NotePlayer {
      * @param note pitch of the note translated into Integer value
      */
     public void playNote (int note) {
-
         try {
             synth.open();
             midiChannel.noteOn(note, 100);
@@ -38,7 +37,6 @@ public class NotePlayer {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 }

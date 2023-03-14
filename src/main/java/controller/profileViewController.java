@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
@@ -28,10 +27,10 @@ public class profileViewController {
     @FXML
     private Slider timePeriodSlider;
     @FXML
-    private Button biggestFlawButton;
+    private Label biggestFlawLabel;
 
-    public static Label static_clickCountLabel, static_accuracyLabel;
-    public static Button static_biggestFlawButton;
+    public static Label static_playCountLabel, static_accuracyLabel;
+    public static Label static_biggestFlawLabel;
 
     /**
      * Sets the initial values that are displayed by the FXML variables.
@@ -40,9 +39,9 @@ public class profileViewController {
     public void initialize() {
         setTimePeriod();
 
-        static_clickCountLabel = playCountLabel;
+        static_playCountLabel = playCountLabel;
         static_accuracyLabel = accuracyLabel;
-        static_biggestFlawButton = biggestFlawButton;
+        static_biggestFlawLabel = biggestFlawLabel;
     }
 
     /**
@@ -69,7 +68,7 @@ public class profileViewController {
         DAO.loadUserGameData(period);
         setClickCountLabel();
         setAccuracyLabel();
-        setBiggestFlawButton();
+        setBiggestFlawLabel();
     }
 
     /**
@@ -94,17 +93,16 @@ public class profileViewController {
     }
 
     /**
-     * Sets value for the FXML label "biggestFlawButton".
-     * TODO launch special game from the button
+     * Sets value for the FXML label "biggestFlawLabel".
      */
-    private void setBiggestFlawButton() {
-        biggestFlawButton.setDisable(false);
+    private void setBiggestFlawLabel() {
+        biggestFlawLabel.setDisable(false);
 
         if (User.getBiggestFlaw() == null) {
-            biggestFlawButton.setDisable(true);
-            biggestFlawButton.setText("-");
+            biggestFlawLabel.setDisable(true);
+            biggestFlawLabel.setText("-");
         } else {
-            biggestFlawButton.setText(intervalToString(User.getBiggestFlaw()));
+            biggestFlawLabel.setText(intervalToString(User.getBiggestFlaw()));
         }
     }
 

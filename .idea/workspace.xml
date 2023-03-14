@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Convert enum values into corresponding Strings&#10;to make UI look nicer.">
-      <change afterPath="$PROJECT_DIR$/src/test/java/DataAnalyzerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Add test class for DataAnalyzer.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/NotePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/NotePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ProfileView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ProfileView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -65,7 +66,7 @@
       <recent name="C:\Users\Jukka\IdeaProjects\MIDI-Ear-Trainer\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DataAnalyzerTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="launcher.Main" />
       <module name="MIDI-Ear-Trainer" />
@@ -223,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678379593776</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Add test class for DataAnalyzer.">
+      <created>1678748345964</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678748345964</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -246,7 +254,8 @@
     <MESSAGE value="PlayView uses enum Intervals&#10; instead of integers." />
     <MESSAGE value="Biggest flaw is not calculated relatively." />
     <MESSAGE value="Convert enum values into corresponding Strings&#10;to make UI look nicer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Convert enum values into corresponding Strings&#10;to make UI look nicer." />
+    <MESSAGE value="Add test class for DataAnalyzer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add test class for DataAnalyzer." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
