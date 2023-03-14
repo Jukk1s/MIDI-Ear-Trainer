@@ -4,3 +4,6 @@
 .default-color1.chart-bar {
     -fx-bar-fill: #f25050;
 }
+.choice-box .label {
+     -fx-text-fill: #f5f3e1;
+}

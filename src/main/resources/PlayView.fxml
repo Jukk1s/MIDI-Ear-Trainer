@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.playViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f5f3e1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.playViewController">
    <children>
       <GridPane layoutY="-2.0" prefHeight="388.0" prefWidth="600.0" style="-fx-background-color: transparent;">
         <columnConstraints>
@@ -36,12 +36,12 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ChoiceBox fx:id="intervalChoiceBox" prefHeight="36.0" prefWidth="101.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                  <ChoiceBox fx:id="intervalChoiceBox" prefHeight="36.0" prefWidth="101.0" style="-fx-background-color: #21211f;" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="24.0" />
                      </GridPane.margin>
                   </ChoiceBox>
-                  <Button fx:id="playButton" mnemonicParsing="false" onAction="#initPlayNotes" prefHeight="59.0" prefWidth="110.0" text="PLAY" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <Button fx:id="playButton" mnemonicParsing="false" onAction="#initPlayNotes" prefHeight="67.0" prefWidth="136.0" style="-fx-background-color: #21211f;" text="Play notes" textFill="#f5f3e1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>

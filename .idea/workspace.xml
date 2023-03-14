@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Add test class for DataAnalyzer.">
+    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Stylizations and corrections">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/NotePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/NotePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PlayView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PlayView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ProfileView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ProfileView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678748345964</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Stylizations and corrections">
+      <created>1678831310850</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1678831310850</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -255,7 +262,8 @@
     <MESSAGE value="Biggest flaw is not calculated relatively." />
     <MESSAGE value="Convert enum values into corresponding Strings&#10;to make UI look nicer." />
     <MESSAGE value="Add test class for DataAnalyzer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add test class for DataAnalyzer." />
+    <MESSAGE value="Stylizations and corrections" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stylizations and corrections" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

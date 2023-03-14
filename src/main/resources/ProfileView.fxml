@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="600.0" maxWidth="1067.0" prefHeight="600.0" prefWidth="1067.0" style="-fx-background-color: &quot;aaab79;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.profileViewController">
+<AnchorPane maxHeight="600.0" maxWidth="1067.0" prefHeight="600.0" prefWidth="1067.0" style="-fx-background-color: linear-gradient(#c9c9a9, #f5f3e1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.profileViewController">
    <children>
       <GridPane layoutY="1.0" maxHeight="600.0" maxWidth="1067.0" prefHeight="600.0" prefWidth="1067.0">
         <columnConstraints>
@@ -23,7 +23,7 @@
           <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="goToPlayViewButton" mnemonicParsing="false" onAction="#goToPlayView" prefHeight="77.0" prefWidth="145.0" style="-fx-background-color: #9196db;" text="Play" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Button fx:id="goToPlayViewButton" mnemonicParsing="false" onAction="#goToPlayView" prefHeight="77.0" prefWidth="145.0" style="-fx-background-color: #21211f;" text="Play" textFill="#a39ff5" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
@@ -33,7 +33,7 @@
             </Button>
             <Label text="Profile" GridPane.halignment="LEFT">
                <font>
-                  <Font name="Arial Bold" size="22.0" />
+                  <Font name="Arial Bold" size="26.0" />
                </font>
                <GridPane.margin>
                   <Insets left="96.0" top="8.0" />
@@ -41,8 +41,8 @@
             </Label>
             <GridPane prefHeight="155.0" prefWidth="307.0" GridPane.rowIndex="1">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="245.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="10.0" prefWidth="229.0" />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
@@ -53,7 +53,7 @@
                <children>
                   <Label text="Times played:" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
-                        <Font name="Arial Bold" size="13.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font></Label>
                   <Label fx:id="playCountLabel" alignment="CENTER" prefHeight="17.0" prefWidth="122.0" text="113" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
@@ -62,7 +62,7 @@
                   </Label>
                   <Label text="Accuracy:" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
-                        <Font name="Arial Bold" size="13.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font></Label>
                   <Label fx:id="accuracyLabel" alignment="CENTER" prefHeight="17.0" prefWidth="43.0" text="50 %" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
@@ -70,14 +70,14 @@
                      </font></Label>
                   <Label text="Biggest flaw:" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                      <font>
-                        <Font name="Arial Bold" size="13.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font></Label>
                   <Label text="Time period:" GridPane.halignment="CENTER">
                      <GridPane.margin>
                         <Insets top="24.0" />
                      </GridPane.margin>
                      <font>
-                        <Font name="Arial Bold" size="13.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font></Label>
                   <GridPane GridPane.columnIndex="1">
                     <columnConstraints>
@@ -103,13 +103,13 @@
                   </Label>
                </children>
                <GridPane.margin>
-                  <Insets bottom="24.0" left="8.0" right="16.0" />
+                  <Insets bottom="24.0" left="24.0" right="16.0" />
                </GridPane.margin>
                <padding>
                   <Insets top="16.0" />
                </padding>
             </GridPane>
-            <Button fx:id="goToGraphViewButton" mnemonicParsing="false" onAction="#goToGraphView" prefHeight="77.0" prefWidth="145.0" style="-fx-background-color: #91db94;" text="Graphs" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Button fx:id="goToGraphViewButton" mnemonicParsing="false" onAction="#goToGraphView" prefHeight="77.0" prefWidth="145.0" style="-fx-background-color: #21211f;" text="Graphs" textFill="#baf2ba" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
@@ -117,7 +117,7 @@
                   <Insets left="98.0" top="50.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="77.0" prefWidth="145.0" style="-fx-background-color: #db9191;" text="Training" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Button mnemonicParsing="false" prefHeight="77.0" prefWidth="145.0" style="-fx-background-color: #21211f;" text="Training" textFill="#f29f9f" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
@@ -125,9 +125,9 @@
                   <Insets right="118.0" top="50.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="99.0" style="-fx-background-color: black;" text="Log out" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: white; -fx-border-color: black;" text="Log out" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                <font>
-                  <Font name="Arial" size="18.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
                <GridPane.margin>
                   <Insets right="96.0" />
