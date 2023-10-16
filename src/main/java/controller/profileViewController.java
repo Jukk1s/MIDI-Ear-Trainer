@@ -147,5 +147,21 @@ public class profileViewController {
         }
     }
 
+    @FXML
+    public void goToTrainingView(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../TrainingView.fxml"));
+            AnchorPane trainingView = loader.load();
+            Scene scene = new Scene(trainingView);
+            Stage stage = new Stage();
+            stage.setTitle("MIDI Ear Trainer - Training");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

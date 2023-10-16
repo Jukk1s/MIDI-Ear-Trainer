@@ -14,8 +14,8 @@
    <children>
       <GridPane layoutY="1.0" maxHeight="600.0" maxWidth="1067.0" prefHeight="600.0" prefWidth="1067.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="514.0" minWidth="10.0" prefWidth="512.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="624.0" minWidth="10.0" prefWidth="529.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="654.0" minWidth="10.0" prefWidth="605.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="624.0" minWidth="10.0" prefWidth="446.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="265.0" minHeight="7.0" prefHeight="165.0" vgrow="SOMETIMES" />
@@ -23,61 +23,61 @@
           <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="goToPlayViewButton" mnemonicParsing="false" onAction="#goToPlayView" prefHeight="77.0" prefWidth="145.0" style="-fx-background-color: #21211f;" text="Play" textFill="#a39ff5" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Button fx:id="goToPlayViewButton" mnemonicParsing="false" onAction="#goToPlayView" prefHeight="70.0" prefWidth="145.0" style="-fx-background-color: #21211f;" text="Play" textFill="#a39ff5" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
                <GridPane.margin>
-                  <Insets right="10.0" top="151.0" />
+                  <Insets right="140.0" top="50.0" />
                </GridPane.margin>
             </Button>
             <Label text="Profile" GridPane.halignment="LEFT">
                <font>
-                  <Font name="Arial Bold" size="26.0" />
+                  <Font name="Arial Bold" size="31.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="96.0" top="8.0" />
+                  <Insets left="140.0" top="8.0" />
                </GridPane.margin>
             </Label>
-            <GridPane prefHeight="155.0" prefWidth="307.0" GridPane.rowIndex="1">
+            <GridPane prefHeight="325.0" prefWidth="444.0" GridPane.rowIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="245.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="10.0" prefWidth="229.0" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="98.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Times played:" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
-                        <Font name="Arial Bold" size="14.0" />
+                        <Font name="Arial Bold" size="16.0" />
                      </font></Label>
                   <Label fx:id="playCountLabel" alignment="CENTER" prefHeight="17.0" prefWidth="122.0" text="113" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
-                        <Font name="Arial" size="13.0" />
+                        <Font name="Arial" size="15.0" />
                      </font>
                   </Label>
                   <Label text="Accuracy:" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
-                        <Font name="Arial Bold" size="14.0" />
+                        <Font name="Arial Bold" size="16.0" />
                      </font></Label>
                   <Label fx:id="accuracyLabel" alignment="CENTER" prefHeight="17.0" prefWidth="43.0" text="50 %" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
-                        <Font name="Arial" size="13.0" />
+                        <Font name="Arial" size="15.0" />
                      </font></Label>
                   <Label text="Biggest flaw:" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                      <font>
-                        <Font name="Arial Bold" size="14.0" />
+                        <Font name="Arial Bold" size="16.0" />
                      </font></Label>
                   <Label text="Time period:" GridPane.halignment="CENTER">
                      <GridPane.margin>
                         <Insets top="24.0" />
                      </GridPane.margin>
                      <font>
-                        <Font name="Arial Bold" size="14.0" />
+                        <Font name="Arial Bold" size="16.0" />
                      </font></Label>
                   <GridPane GridPane.columnIndex="1">
                     <columnConstraints>
@@ -91,38 +91,38 @@
                         <Slider fx:id="timePeriodSlider" blockIncrement="1.0" majorTickUnit="6.0" max="6.0" maxWidth="150.0" min="1.0" minorTickCount="5" onMouseDragReleased="#setTimePeriod" onMouseReleased="#setTimePeriod" prefHeight="14.0" prefWidth="120.0" showTickMarks="true" snapToTicks="true" value="1.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                         <Label fx:id="timePeriodLabel" text="All" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </Label>
                      </children>
                   </GridPane>
                   <Label fx:id="biggestFlawLabel" text="Minor 3rd" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                      <font>
-                        <Font name="Arial" size="13.0" />
+                        <Font name="Arial" size="15.0" />
                      </font>
                   </Label>
                </children>
                <GridPane.margin>
-                  <Insets bottom="24.0" left="24.0" right="16.0" />
+                  <Insets bottom="24.0" left="70.0" right="16.0" />
                </GridPane.margin>
                <padding>
                   <Insets top="16.0" />
                </padding>
             </GridPane>
-            <Button fx:id="goToGraphViewButton" mnemonicParsing="false" onAction="#goToGraphView" prefHeight="77.0" prefWidth="145.0" style="-fx-background-color: #21211f;" text="Graphs" textFill="#baf2ba" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Button fx:id="goToGraphViewButton" mnemonicParsing="false" onAction="#goToGraphView" prefHeight="70.0" prefWidth="145.0" style="-fx-background-color: #21211f;" text="Data" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="98.0" top="50.0" />
+                  <Insets right="140.0" top="230.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="77.0" prefWidth="145.0" style="-fx-background-color: #21211f;" text="Training" textFill="#f29f9f" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Button mnemonicParsing="false" onAction="#goToTrainingView" prefHeight="70.0" prefWidth="145.0" style="-fx-background-color: #21211f;" text="Training" textFill="#f29f9f" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
                <GridPane.margin>
-                  <Insets right="118.0" top="50.0" />
+                  <Insets right="140.0" top="140.0" />
                </GridPane.margin>
             </Button>
             <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: white; -fx-border-color: black;" text="Log out" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
@@ -130,7 +130,7 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
                <GridPane.margin>
-                  <Insets right="96.0" />
+                  <Insets right="140.0" />
                </GridPane.margin>
             </Button>
          </children>

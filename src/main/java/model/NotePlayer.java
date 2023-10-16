@@ -10,6 +10,7 @@ import javax.sound.midi.Synthesizer;
 public class NotePlayer {
     private Synthesizer synth;
     private MidiChannel midiChannel;
+    private int pitch = 60; //the lowest pitch used here is 60 steps above the lowest that the MIDI synth can play
 
     /**
      * Constructor. Initializes the player.
@@ -28,9 +29,10 @@ public class NotePlayer {
      * @param note pitch of the note translated into Integer value
      */
     public void playNote (int note) {
+        int midiNote = note + pitch;
         try {
             synth.open();
-            midiChannel.noteOn(note, 100);
+            midiChannel.noteOn(midiNote, 100);
             Thread.sleep(2000);
             synth.close();
 

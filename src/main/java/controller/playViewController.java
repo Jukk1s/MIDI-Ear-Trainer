@@ -28,17 +28,19 @@ public class playViewController extends profileViewController {
     private int rand1, rand2;
     private Interval correctInterval, selectedInterval;
     private boolean buttonPressed, notesPlaying, answerChecked;
+    private Random rand;
     @FXML
     private Button playButton;
     @FXML
     private ChoiceBox intervalChoiceBox;
     @FXML
-    private Label wrongAnswerLabel;
+    private Label feedbackLabel;
 
     /**
-     * Sets initial values and states for the class members.
+     * Sets the initial values and states for the class members.
      */
     public void initialize() {
+        rand = new Random();
         notePlayer = new NotePlayer();
         answerChecked = true;
         setChoiceBoxItems();
@@ -66,10 +68,9 @@ public class playViewController extends profileViewController {
      * Generates two random notes in range of an octave.
      */
     public void generateNotes() {
-        Random rand = new Random();
-        rand1 = rand.nextInt(73 - 60) + 60;
+        rand1 = rand.nextInt(13);
         do {
-            rand2 = rand.nextInt(73 - 60) + 60;
+            rand2 = rand.nextInt(13);
         } while (rand2 == rand1);
 
         calculateInterval(rand1, rand2);
@@ -78,8 +79,10 @@ public class playViewController extends profileViewController {
     /**
      * Checks if circumstances are OK for generating and playing notes.
      * Calls for methods to generate and play the generated notes.
+     * Calls for NotePlayer to play two notes in new thread so that the UI doesn't freeze.
      */
-    public void initPlayNotes() {
+    @FXML
+    private void playNotes() {
         if (notesPlaying) {
             return;
         }
@@ -87,17 +90,9 @@ public class playViewController extends profileViewController {
             generateNotes();
         }
         intervalChoiceBox.setDisable(false);
-        wrongAnswerLabel.setText("");
+        feedbackLabel.setText("");
         buttonPressed = true;
         answerChecked = false;
-
-        playNotes();
-    }
-
-    /**
-     * Calls for NotePlayer to play two notes in new thread so that the UI doesn't freeze.
-     */
-    private void playNotes() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -131,10 +126,10 @@ public class playViewController extends profileViewController {
     private void checkIfAnswerCorrect() {
         if (!answerChecked) {
             if (buttonPressed && selectedInterval == correctInterval) {
-                wrongAnswerLabel.setText("Correct!");
+                feedbackLabel.setText("Correct!");
                 User.increaseCorrectCount();
             } else {
-                wrongAnswerLabel.setText("Wrong. Correct interval was " + intervalToString(correctInterval));
+                feedbackLabel.setText("Wrong. Correct interval was " + intervalToString(correctInterval));
             }
         }
         answerChecked = true;

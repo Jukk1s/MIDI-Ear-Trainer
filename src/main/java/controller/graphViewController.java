@@ -63,7 +63,7 @@ public class graphViewController {
     }
 
     /**
-     * Draws a stacked bar chart that shows all the intervals, with the amount of correct and false answers to each
+     * Draws a stacked bar chart that shows all the intervals, with the amount of correct and false answers in each
      */
     @FXML
     public void drawIntervalComparisonGraph() {

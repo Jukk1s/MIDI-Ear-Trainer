@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="533.0" prefWidth="800.0" style="-fx-background-color: #f5f3e1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.trainingViewController">
+    <children>
+        <GridPane layoutY="-2.0" prefHeight="533.0" prefWidth="800.0" style="-fx-background-color: transparent;">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+            <RowConstraints maxHeight="159.0" minHeight="70.0" prefHeight="157.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="84.0" minHeight="28.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="143.0" minHeight="89.0" prefHeight="128.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="70.0" minHeight="52.0" prefHeight="63.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="150.0" minHeight="0.0" prefHeight="140.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="wrongAnswerLabel" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                    <font>
+                        <Font name="Arial" size="18.0" />
+                    </font>
+                </Label>
+                <GridPane GridPane.rowIndex="2">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Button fx:id="playButton2" mnemonicParsing="false" onAction="#playNotesTwo" prefHeight="56.0" prefWidth="109.0" style="-fx-background-color: #21211f;" text="B" textFill="#f5f3e1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                            <font>
+                                <Font name="Arial Bold" size="25.0" />
+                            </font>
+                            <GridPane.margin>
+                                <Insets right="234.0" />
+                            </GridPane.margin>
+                        </Button>
+                  <Button fx:id="playButton1" mnemonicParsing="false" onAction="#playNotesOne" prefHeight="56.0" prefWidth="109.0" style="-fx-background-color: #21211f;" text="A" textFill="#f5f3e1">
+                     <font>
+                        <Font name="Arial Bold" size="25.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="234.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Label fx:id="orLabel" text="OR" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </GridPane>
+            <Label fx:id="questionLabel" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <ChoiceBox fx:id="answerChoiceBox" prefHeight="35.0" prefWidth="91.0" style="-fx-background-color: #21211f;" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+            </ChoiceBox>
+            <Label fx:id="feedbackLabel" text="Correct" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+            </Label>
+            <ChoiceBox fx:id="intervalToTrainChoiceBox" prefHeight="35.0" prefWidth="108.0" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="154.0" />
+               </GridPane.margin>
+            </ChoiceBox>
+            <Label text="Interval to be trained:" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="48.0" right="154.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>

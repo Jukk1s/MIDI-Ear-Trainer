@@ -81,6 +81,48 @@ public class DataAnalyzer {
     }
 
     /**
+     * Finds the most common wrong answer in a given list of games.
+     * @param list list of Game objects
+     * @return interval that is the most common wrong answer
+     */
+    public static Interval findMostCommonMistake(List<Game> list) {
+        int[] mistakeCount = {0,0,0,0,0,0,0,0,0,0,0,0};
+
+        for (Game game : list) {
+            if (game.getChosenInterval() != game.getCorrectInterval()) {
+                Interval mistake = game.getChosenInterval();
+                switch (mistake) {
+                    case MINOR_2ND -> mistakeCount[0]++;
+                    case MAJOR_2ND -> mistakeCount[1]++;
+                    case MINOR_3RD -> mistakeCount[2]++;
+                    case MAJOR_3RD -> mistakeCount[3]++;
+                    case PERFECT_4TH -> mistakeCount[4]++;
+                    case TRITONE -> mistakeCount[5]++;
+                    case PERFECT_5TH-> mistakeCount[6]++;
+                    case MINOR_6TH -> mistakeCount[7]++;
+                    case MAJOR_6TH -> mistakeCount[8]++;
+                    case MINOR_7TH -> mistakeCount[9]++;
+                    case MAJOR_7TH -> mistakeCount[10]++;
+                    case OCTAVE -> mistakeCount[11]++;
+                }
+            }
+        }
+
+        double mostMistakes = 0;
+        Interval mostCommonMistake = null;
+
+        for (int i = 0; i < mistakeCount.length; i++) {
+            if (mistakeCount[i] > mostMistakes) {
+                mostMistakes = mistakeCount[i];
+                mostCommonMistake = integerToInterval(i+1);
+            }
+        }
+
+        return mostCommonMistake;
+    }
+
+
+    /**
      * Counts the number of games played, where the provided interval was the correct answer.
      * @param list list of Game objects
      * @param interval interval that was the correct answer

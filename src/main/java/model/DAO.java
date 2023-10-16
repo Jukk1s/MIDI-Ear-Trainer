@@ -92,6 +92,50 @@ public class DAO {
         Interval biggestFlaw = DataAnalyzer.findBiggestFlaw(playedGames);
 
         User.setUserData(totalCount, correctCount, biggestFlaw);
+
+    }
+
+    public static List<Game> loadUserGameDataByInterval(TimePeriod timePeriod, Interval interval) {
+        ArrayList<Game> playedGames = null;
+
+        int intervalInt = intervalToInteger(interval);
+
+        String query = switch (timePeriod) {
+            case ALL -> "SELECT * FROM Game WHERE UserID = 1 AND CorrectInterval = " + intervalInt;
+            case HOUR -> "SELECT * FROM Game WHERE UserID = 1 AND DATE_SUB(NOW(), INTERVAL 1 HOUR) < PlayedAt AND CorrectInterval = " + intervalInt;
+            case DAY -> "SELECT * FROM Game WHERE UserID = 1 AND DATE_SUB(NOW(), INTERVAL 1 DAY) < PlayedAt AND CorrectInterval = " + intervalInt;
+            case WEEK -> "SELECT * FROM Game WHERE UserID = 1 AND DATE_SUB(NOW(), INTERVAL 1 WEEK) < PlayedAt AND CorrectInterval = " + intervalInt;
+            case MONTH -> "SELECT * FROM Game WHERE UserID = 1 AND DATE_SUB(NOW(), INTERVAL 1 MONTH) < PlayedAt AND CorrectInterval = " + intervalInt;
+            case YEAR -> "SELECT * FROM Game WHERE UserID = 1 AND DATE_SUB(NOW(), INTERVAL 1 YEAR) < PlayedAt AND CorrectInterval = " + intervalInt;
+        };
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            playedGames = new ArrayList<>(rs.getMetaData().getColumnCount());
+
+
+            while (rs.next()) {
+                Game game = new Game();
+                game.setUserID(rs.getInt("UserID"));
+
+                intervalInt = rs.getInt("SelectedInterval");
+                interval = integerToInterval(intervalInt);
+                game.setSelectedInterval(interval);
+
+                intervalInt = rs.getInt("CorrectInterval");
+                interval = integerToInterval(intervalInt);
+                game.setCorrectInterval(interval);
+
+                game.setPlayedAt(rs.getTimestamp("playedAt"));
+                playedGames.add(game);
+            }
+
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+        return playedGames;
     }
 
     /**
