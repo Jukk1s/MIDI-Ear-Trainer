@@ -73,7 +73,7 @@
                   <Insets top="10.0" />
                </GridPane.margin>
             </ChoiceBox>
-            <Label fx:id="feedbackLabel" text="Correct" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <Label fx:id="feedbackLabel" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>

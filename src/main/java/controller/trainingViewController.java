@@ -6,9 +6,13 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import model.*;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Random;
 
+import static controller.profileViewController.static_accuracyLabel;
+import static controller.profileViewController.static_playCountLabel;
 import static utility.EnumConverter.*;
 
 /**
@@ -20,6 +24,7 @@ public class trainingViewController {
     private int noteA1, noteA2, noteB1, noteB2;
     private boolean buttonPressed, notesPlaying, answerChecked, intervalChoiceChecked;
     private Random rand;
+    private static GameType gameType;
     private NotePlayer notePlayer;
     private DataAnalyzer dataAnalyzer;
     private Interval intervalToTrain, selectedInterval, correctInterval;
@@ -36,11 +41,15 @@ public class trainingViewController {
      * Sets the initial values and states for the class members.
      */
     public void initialize() {
+        gameType = GameType.TRAINING;
         rand = new Random();
         intervalChoiceChecked = false;
         notePlayer = new NotePlayer();
         setIntervalToTrainChoiceBoxItems();
         setAnswerChoiceBoxItems();
+        answerChoiceBox.setDisable(true);
+        playButton1.setDisable(true);
+        playButton2.setDisable(true);
     }
 
     /**
@@ -53,8 +62,10 @@ public class trainingViewController {
         }
         intervalToTrainChoiceBox.setOnAction(event -> {
             intervalToTrain = intervalToTrainChoiceBox.getSelectionModel().getSelectedItem();
-            questionLabel.setText("Which one is " + intervalToTrain + "?");
+            questionLabel.setText("Which one is " + intervalToString(intervalToTrain) + "?");
             correctInterval = intervalToTrain;
+            playButton1.setDisable(false);
+            playButton2.setDisable(false);
             generateNotes(intervalToTrain);
         });
     }
@@ -105,6 +116,7 @@ public class trainingViewController {
 
     /**
      * Checks whether the answer is correct and displays feedback.
+     * Updates Labels, User variables and DAO accordingly.
      */
     public void checkIfAnswerCorrect() {
         if (selectedInterval == correctInterval) {
@@ -112,6 +124,17 @@ public class trainingViewController {
         } else {
             feedbackLabel.setText("Wrong. Correct interval was " + intervalToString(correctInterval));
         }
+        answerChoiceBox.setDisable(true);
+
+        DAO.getInstance().saveGame(gameType, selectedInterval, correctInterval);
+        User.increaseClickCount();
+        User.setAccuracy();
+
+        DecimalFormat df = new DecimalFormat("##");
+        df.setRoundingMode(RoundingMode.HALF_UP);
+        String accuracy = df.format(User.getAccuracy());
+        static_accuracyLabel.setText(accuracy + " %");
+        static_playCountLabel.setText(String.valueOf(User.getGameCount()));
     }
 
     /**

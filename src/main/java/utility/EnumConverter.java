@@ -1,5 +1,6 @@
 package utility;
 
+import model.GameType;
 import model.Interval;
 
 /**
@@ -85,6 +86,20 @@ public class EnumConverter {
             case MINOR_7TH -> value = "Minor 7th";
             case MAJOR_7TH -> value = "Major 7th";
             case OCTAVE -> value = "Octave";
+        }
+        return value;
+    }
+
+    /**
+     * Converts GameType to String value.
+     * @param gameType gameType to be converted
+     * @return corresponding String value
+     */
+    public static String gameTypeToString(GameType gameType) {
+        String value = null;
+        switch (gameType) {
+            case GAME -> value = "game";
+            case TRAINING -> value = "training";
         }
         return value;
     }

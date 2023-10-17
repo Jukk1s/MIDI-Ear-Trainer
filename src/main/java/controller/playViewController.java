@@ -8,17 +8,13 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.DAO;
-import model.Interval;
-import model.NotePlayer;
-import model.User;
+import model.*;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Random;
 
-import static utility.EnumConverter.integerToInterval;
-import static utility.EnumConverter.intervalToString;
+import static utility.EnumConverter.*;
 
 /**
  * Class for controlling PlayView.fxml
@@ -29,6 +25,7 @@ public class playViewController extends profileViewController {
     private Interval correctInterval, selectedInterval;
     private boolean buttonPressed, notesPlaying, answerChecked;
     private Random rand;
+    private static GameType gameType;
     @FXML
     private Button playButton;
     @FXML
@@ -40,6 +37,7 @@ public class playViewController extends profileViewController {
      * Sets the initial values and states for the class members.
      */
     public void initialize() {
+        gameType = GameType.GAME;
         rand = new Random();
         notePlayer = new NotePlayer();
         answerChecked = true;
@@ -135,7 +133,7 @@ public class playViewController extends profileViewController {
         answerChecked = true;
         intervalChoiceBox.setDisable(true);
 
-        DAO.getInstance().saveGame(selectedInterval, correctInterval);
+        DAO.getInstance().saveGame(gameType, selectedInterval, correctInterval);
         User.increaseClickCount();
         User.setAccuracy();
 
@@ -144,7 +142,6 @@ public class playViewController extends profileViewController {
         String accuracy = df.format(User.getAccuracy());
         static_accuracyLabel.setText(accuracy + " %");
         static_playCountLabel.setText(String.valueOf(User.getGameCount()));
-
     }
 
     /**

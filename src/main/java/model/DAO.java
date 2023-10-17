@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static utility.EnumConverter.integerToInterval;
-import static utility.EnumConverter.intervalToInteger;
+import static utility.EnumConverter.*;
 
 /**
  * Class that serves as a link between database and the application.
@@ -191,15 +190,16 @@ public class DAO {
      * @param selectedInterval interval that user selected
      * @param correctInterval interval that was correct
      */
-    public void saveGame(Interval selectedInterval, Interval correctInterval) {
+    public void saveGame(GameType gameType, Interval selectedInterval, Interval correctInterval) {
         int intSelectedInterval = intervalToInteger(selectedInterval);
         int intCorrectInterval = intervalToInteger(correctInterval);
+        String gameTypeStr = gameTypeToString(gameType);
 
         try {
             long now = System.currentTimeMillis();
             Timestamp timestamp = new Timestamp(now);
-            String query = "INSERT INTO Game (PlayedAt, SelectedInterval, CorrectInterval, UserID) " +
-                    "VALUES ('"+timestamp+"', "+intSelectedInterval+", "+intCorrectInterval+", 1)";
+            String query = "INSERT INTO Game (GameType, PlayedAt, SelectedInterval, CorrectInterval, UserID) " +
+                    "VALUES ('"+gameTypeStr+"', '"+timestamp+"', "+intSelectedInterval+", "+intCorrectInterval+", 1)";
             Statement statement = connection.createStatement();
             statement.executeQuery(query);
 

@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 CREATE TABLE IF NOT EXISTS `game` (
   `GameID` int(11) NOT NULL AUTO_INCREMENT,
+  `GameType` CHAR(11) NOT NULL DEFAULT 'game' COLLATE 'latin1_swedish_ci',
   `PlayedAt` timestamp NOT NULL,
   `SelectedInterval` int(11) NOT NULL,
   `CorrectInterval` int(11) NOT NULL,

@@ -34,7 +34,7 @@ public class profileViewController {
 
     /**
      * Sets the initial values that are displayed by the FXML variables.
-     * Creates static instances of the FXML variables so that they can be accessed from playViewController.
+     * Creates static instances of the FXML variables so that they can be accessed from playViewController and trainingViewController.
      */
     public void initialize() {
         setTimePeriod();
