@@ -8,6 +8,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model.DAO;
+import model.DataAnalyzer;
 import model.Game;
 import model.Interval;
 import tornadofx.control.DateTimePicker;
@@ -17,7 +18,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static model.DataAnalyzer.findCorrectCount;
-import static model.DataAnalyzer.findTotalCount;
 import static utility.EnumConverter.integerToInterval;
 import static utility.EnumConverter.intervalToString;
 
@@ -102,7 +102,7 @@ public class graphViewController {
             int correctCount = findCorrectCount(playedGames, interval);
             corrects.getData().add(new XYChart.Data<>(intervalToString(interval), correctCount));
 
-            int falseCount = findTotalCount(playedGames, interval) - correctCount;
+            int falseCount = DataAnalyzer.findTotalCountByInterval(playedGames, interval) - correctCount;
             falses.getData().add(new XYChart.Data<>(intervalToString(interval), falseCount));
         }
 

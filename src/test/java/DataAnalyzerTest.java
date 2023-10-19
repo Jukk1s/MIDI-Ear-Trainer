@@ -51,7 +51,7 @@ public class DataAnalyzerTest {
     @Test
     public void testFindTotalCount() {
         System.out.println("test case - find total count");
-        assertEquals(24, DataAnalyzer.findTotalCount(gameList));
+        assertEquals(24, DataAnalyzer.findTotalCountByInterval(gameList));
     }
     @Test
     public void testFindCorrectCount() {
@@ -66,18 +66,18 @@ public class DataAnalyzerTest {
     @Test
     public void testFindTotalCountWithInterval() {
         System.out.println("test case - find total count with interval");
-        assertEquals(4, findTotalCount(gameList, Interval.MINOR_2ND));
-        assertEquals(1, findTotalCount(gameList, Interval.MAJOR_2ND));
-        assertEquals(2, findTotalCount(gameList, Interval.MINOR_3RD));
-        assertEquals(2, findTotalCount(gameList, Interval.MAJOR_3RD));
-        assertEquals(0, findTotalCount(gameList, Interval.PERFECT_4TH));
-        assertEquals(4, findTotalCount(gameList, Interval.TRITONE));
-        assertEquals(2, findTotalCount(gameList, Interval.PERFECT_5TH));
-        assertEquals(1, findTotalCount(gameList, Interval.MINOR_6TH));
-        assertEquals(1, findTotalCount(gameList, Interval.MAJOR_6TH));
-        assertEquals(2, findTotalCount(gameList, Interval.MINOR_7TH));
-        assertEquals(2, findTotalCount(gameList, Interval.MAJOR_7TH));
-        assertEquals(3, findTotalCount(gameList, Interval.OCTAVE));
+        assertEquals(4, findTotalCountByInterval(gameList, Interval.MINOR_2ND));
+        assertEquals(1, findTotalCountByInterval(gameList, Interval.MAJOR_2ND));
+        assertEquals(2, findTotalCountByInterval(gameList, Interval.MINOR_3RD));
+        assertEquals(2, findTotalCountByInterval(gameList, Interval.MAJOR_3RD));
+        assertEquals(0, findTotalCountByInterval(gameList, Interval.PERFECT_4TH));
+        assertEquals(4, findTotalCountByInterval(gameList, Interval.TRITONE));
+        assertEquals(2, findTotalCountByInterval(gameList, Interval.PERFECT_5TH));
+        assertEquals(1, findTotalCountByInterval(gameList, Interval.MINOR_6TH));
+        assertEquals(1, findTotalCountByInterval(gameList, Interval.MAJOR_6TH));
+        assertEquals(2, findTotalCountByInterval(gameList, Interval.MINOR_7TH));
+        assertEquals(2, findTotalCountByInterval(gameList, Interval.MAJOR_7TH));
+        assertEquals(3, findTotalCountByInterval(gameList, Interval.OCTAVE));
     }
     @Test
     public void testFindCorrectCountWithInterval() {

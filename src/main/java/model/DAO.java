@@ -86,7 +86,7 @@ public class DAO {
             System.err.println(e.getMessage());
         }
 
-        int totalCount = DataAnalyzer.findTotalCount(playedGames);
+        int totalCount = DataAnalyzer.findTotalCountByInterval(playedGames);
         int correctCount = DataAnalyzer.findCorrectCount(playedGames);
         Interval biggestFlaw = DataAnalyzer.findBiggestFlaw(playedGames);
 
@@ -176,7 +176,7 @@ public class DAO {
             System.err.println(e.getMessage());
         }
 
-        int totalCount = DataAnalyzer.findTotalCount(playedGames);
+        int totalCount = DataAnalyzer.findTotalCountByInterval(playedGames);
         int correctCount = DataAnalyzer.findCorrectCount(playedGames);
         Interval biggestFlaw = DataAnalyzer.findBiggestFlaw(playedGames);
 

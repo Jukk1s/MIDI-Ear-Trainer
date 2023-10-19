@@ -14,7 +14,7 @@ public class DataAnalyzer {
      * @param list list of Game objects
      * @return size of the given list
      */
-    public static int findTotalCount(List<Game> list) {
+    public static int findTotalCountByInterval(List<Game> list) {
         int totalCount = list.size();
         return totalCount;
     }
@@ -36,7 +36,7 @@ public class DataAnalyzer {
     }
 
     /**
-     * Calculates which interval has relatively the most incorrect answers.
+     * Calculates which interval has relatively most incorrect answers.
      * @param list list of Game objects
      * @return interval that has most incorrect answers
      */
@@ -67,10 +67,12 @@ public class DataAnalyzer {
         Interval biggestFlaw = null;
 
         for (int i = 0; i < flawCount.length; i++) {
-            int totalCount = findTotalCount(list, integerToInterval(i+1));
+            int totalCount = findTotalCountByInterval(list, integerToInterval(i+1));
+            System.out.println("totalcouht:" +totalCount);
+            System.out.println("flawcount"+flawCount[i]);
 
             if (totalCount != 0) {
-                if (flawCount[i] / totalCount > biggestFlawValue) {
+                if ((double) flawCount[i] / totalCount > biggestFlawValue) {
                     biggestFlawValue = flawCount[i];
                     biggestFlaw = integerToInterval(i+1);
                 }
@@ -123,12 +125,12 @@ public class DataAnalyzer {
 
 
     /**
-     * Counts the number of games played, where the provided interval was the correct answer.
+     * Counts the number of games played where the provided interval was the correct answer.
      * @param list list of Game objects
      * @param interval interval that was the correct answer
      * @return size of the given list, filtered with interval parameter
      */
-    public static int findTotalCount(List<Game> list, Interval interval) {
+    public static int findTotalCountByInterval(List<Game> list, Interval interval) {
         int totalCount = 0;
 
         for (Game game : list) {
