@@ -12,20 +12,20 @@ import model.*;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-import java.util.Random;
 
 import static utility.EnumConverter.*;
+import static model.Calculator.calculateInterval;
 
 /**
  * Class for controlling PlayView.fxml
  */
 public class playViewController extends profileViewController {
     private NotePlayer notePlayer;
-    private int rand1, rand2;
+    private NoteGenerator noteGenerator;
+    private Note note1, note2;
     private Interval correctInterval, selectedInterval;
     private boolean buttonPressed, notesPlaying, answerChecked;
-    private Random rand;
-    private static GameType gameType;
+    private GameType gameType;
     @FXML
     private Button playButton;
     @FXML
@@ -38,8 +38,8 @@ public class playViewController extends profileViewController {
      */
     public void initialize() {
         gameType = GameType.GAME;
-        rand = new Random();
         notePlayer = new NotePlayer();
+        noteGenerator = new NoteGenerator();
         answerChecked = true;
         setChoiceBoxItems();
         intervalChoiceBox.setDisable(true);
@@ -63,15 +63,12 @@ public class playViewController extends profileViewController {
     }
 
     /**
-     * Generates two random notes in range of an octave.
+     * Generates two random notes in a range of octave.
      */
     public void generateNotes() {
-        rand1 = rand.nextInt(13);
-        do {
-            rand2 = rand.nextInt(13);
-        } while (rand2 == rand1);
-
-        calculateInterval(rand1, rand2);
+        Note[] notes = noteGenerator.generateTwoNotesWithRandomInterval();
+        note1 = notes[0];
+        note2 = notes[1];
     }
 
     /**
@@ -86,6 +83,7 @@ public class playViewController extends profileViewController {
         }
         if (answerChecked) {
             generateNotes();
+            correctInterval = calculateInterval(note1, note2);
         }
         intervalChoiceBox.setDisable(false);
         feedbackLabel.setText("");
@@ -96,25 +94,12 @@ public class playViewController extends profileViewController {
             public void run() {
                 notesPlaying = true;
                 playButton.setDisable(true);
-                notePlayer.playNote(rand1);
-                notePlayer.playNote(rand2);
+                notePlayer.playNote(note1);
+                notePlayer.playNote(note2);
                 notesPlaying = false;
                 playButton.setDisable(false);
             }
         }).start();
-    }
-
-    /**
-     * Calculates the interval in semitones between provided notes.
-     * @param note1 pitch of the note translated into Integer value
-     * @param note2 pitch of the note translated into Integer value
-     */
-    public void calculateInterval(int note1, int note2) {
-        if (note1 > note2) {
-            correctInterval = integerToInterval(note1 - note2);
-        } else {
-            correctInterval = integerToInterval(note2 - note1);
-        }
     }
 
     /**

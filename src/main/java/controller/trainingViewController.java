@@ -13,6 +13,8 @@ import java.util.Random;
 
 import static controller.profileViewController.static_accuracyLabel;
 import static controller.profileViewController.static_playCountLabel;
+import static model.Calculator.calculateInterval;
+import static model.DataAnalyzer.findMostCommonMistake;
 import static utility.EnumConverter.*;
 
 /**
@@ -21,11 +23,12 @@ import static utility.EnumConverter.*;
  */
 public class trainingViewController {
 
-    private int noteA1, noteA2, noteB1, noteB2;
-    private boolean buttonPressed, notesPlaying, answerChecked, intervalChoiceChecked;
+    private Note noteA1, noteA2, noteB1, noteB2;
+    private boolean notesPlaying, answerChecked;
     private Random rand;
     private static GameType gameType;
     private NotePlayer notePlayer;
+    private NoteGenerator noteGenerator;
     private DataAnalyzer dataAnalyzer;
     private Interval intervalToTrain, selectedInterval, correctInterval;
     @FXML
@@ -43,7 +46,8 @@ public class trainingViewController {
     public void initialize() {
         gameType = GameType.TRAINING;
         rand = new Random();
-        intervalChoiceChecked = false;
+        answerChecked = true;
+        noteGenerator = new NoteGenerator();
         notePlayer = new NotePlayer();
         setIntervalToTrainChoiceBoxItems();
         setAnswerChoiceBoxItems();
@@ -66,7 +70,7 @@ public class trainingViewController {
             correctInterval = intervalToTrain;
             playButton1.setDisable(false);
             playButton2.setDisable(false);
-            generateNotes(intervalToTrain);
+            generateNotes();
         });
     }
 
@@ -79,10 +83,13 @@ public class trainingViewController {
         answerChoiceBox.setOnAction(event -> {
             String answer = answerChoiceBox.getSelectionModel().getSelectedItem();
             if (answer == "A") {
-                selectedInterval = integerToInterval(noteA2);
+                selectedInterval = calculateInterval(noteA1, noteA2);
             } else {
-                selectedInterval = integerToInterval(noteB2);
+                selectedInterval = calculateInterval(noteB1, noteB2);
             }
+
+            System.out.println(selectedInterval);
+            answerChoiceBox.getSelectionModel().clearSelection();
             checkIfAnswerCorrect();
         });
     }
@@ -91,25 +98,24 @@ public class trainingViewController {
      * Generates notes for both buttons to play, and randomizes which one plays the correct interval.
      * The incorrect interval is chosen based on user game data: the most commonly mistaken interval.
      */
-    public void generateNotes(Interval interval) {
+    public void generateNotes() {
         if (intervalToTrain != null) {
-            List<Game> gameList = DAO.loadUserGameDataByInterval(TimePeriod.ALL, interval);
-            Interval mostCommonMistake = dataAnalyzer.findMostCommonMistake(gameList);
+            List<Game> gameList = DAO.loadUserGameDataByInterval(TimePeriod.ALL, intervalToTrain);
+            Interval mostCommonMistake = findMostCommonMistake(gameList);
+            Note[] notes = noteGenerator.generateTwoRandomNotesWithSpecificInterval(intervalToTrain);
+            Note[] notes2 = noteGenerator.generateTwoRandomNotesWithSpecificInterval(mostCommonMistake);
 
-            int selectedIntervalInt = intervalToInteger(intervalToTrain);
-            int baseNote = 0;
-
-            int oneOrTwo = rand.nextInt(2) + 1;
-            if (oneOrTwo == 1) {
-                noteA1 = baseNote;
-                noteA2 = selectedIntervalInt;
-                noteB1 = baseNote;
-                noteB2 = intervalToInteger(mostCommonMistake);
+            int randomizer = rand.nextInt(2) + 1;
+            if (randomizer == 1) {
+                noteA1 = notes[0];
+                noteA2 = notes[1];
+                noteB1 = notes2[0];
+                noteB2 = notes2[1];
             } else {
-                noteA1 = baseNote;
-                noteA2 = intervalToInteger(mostCommonMistake);
-                noteB1 = baseNote;
-                noteB2 = selectedIntervalInt;
+                noteA1 = notes2[0];
+                noteA2 = notes2[1];
+                noteB1 = notes[0];
+                noteB2 = notes[1];
             }
         }
     }
@@ -119,10 +125,11 @@ public class trainingViewController {
      * Updates Labels, User variables and DAO accordingly.
      */
     public void checkIfAnswerCorrect() {
+        answerChecked = true;
         if (selectedInterval == correctInterval) {
             feedbackLabel.setText("Correct!");
         } else {
-            feedbackLabel.setText("Wrong. Correct interval was " + intervalToString(correctInterval));
+            feedbackLabel.setText("Wrong.");
         }
         answerChoiceBox.setDisable(true);
 
@@ -147,11 +154,10 @@ public class trainingViewController {
             return;
         }
         if (answerChecked) {
-            generateNotes(intervalToTrain);
+            generateNotes();
         }
         answerChoiceBox.setDisable(false);
         feedbackLabel.setText("");
-        buttonPressed = true;
         answerChecked = false;
         new Thread(new Runnable() {
             @Override
@@ -176,11 +182,10 @@ public class trainingViewController {
             return;
         }
         if (answerChecked) {
-            generateNotes(intervalToTrain);
+            generateNotes();
         }
         answerChoiceBox.setDisable(false);
         feedbackLabel.setText("");
-        buttonPressed = true;
         answerChecked = false;
         new Thread(new Runnable() {
             @Override

@@ -4,13 +4,15 @@ import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Synthesizer;
 
+import static model.Note.getPitchByNote;
+
 /**
  * Class that plays notes.
  */
 public class NotePlayer {
-    private Synthesizer synth;
-    private MidiChannel midiChannel;
-    private int pitch = 60; //the lowest pitch used here is 60 steps above the lowest that the MIDI synth can play
+    private static Synthesizer synth;
+    private static MidiChannel midiChannel;
+    private static int pitch = 60; //the lowest pitch used here is 60 steps above the lowest that the MIDI synth can play
 
     /**
      * Constructor. Initializes the player.
@@ -28,8 +30,8 @@ public class NotePlayer {
      * Plays the desired note.
      * @param note pitch of the note translated into Integer value
      */
-    public void playNote (int note) {
-        int midiNote = note + pitch;
+    public static void playNote (Note note) {
+        int midiNote = getPitchByNote(note) + pitch;
         try {
             synth.open();
             midiChannel.noteOn(midiNote, 100);

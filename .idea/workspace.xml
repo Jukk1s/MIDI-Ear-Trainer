@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="First version of Training View and supporting methods.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/GameType.java" afterDir="false" />
+    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Training games are saved into DB">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Calculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Note.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/NoteGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/trainingViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/trainingViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/EnumConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/EnumConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/TrainingView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TrainingView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/create-database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/create-database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/NotePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/NotePlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -256,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697493636521</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Training games are saved into DB">
+      <created>1697554778441</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1697554778441</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -283,7 +289,8 @@
     <MESSAGE value="Stylizations and corrections" />
     <MESSAGE value="Stylizations" />
     <MESSAGE value="First version of Training View and supporting methods." />
-    <option name="LAST_COMMIT_MESSAGE" value="First version of Training View and supporting methods." />
+    <MESSAGE value="Training games are saved into DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Training games are saved into DB" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
