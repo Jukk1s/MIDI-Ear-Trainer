@@ -39,7 +39,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ChoiceBox fx:id="intervalChoiceBox" prefHeight="36.0" prefWidth="101.0" style="-fx-background-color: #21211f;" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                  <ChoiceBox fx:id="answerChoiceBox" prefHeight="36.0" prefWidth="101.0" style="-fx-background-color: #21211f;" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="24.0" />
                      </GridPane.margin>

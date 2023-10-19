@@ -29,7 +29,7 @@ public class playViewController extends profileViewController {
     @FXML
     private Button playButton, nextButton;
     @FXML
-    private ChoiceBox intervalChoiceBox;
+    private ChoiceBox answerChoiceBox;
     @FXML
     private Label feedbackLabel;
 
@@ -42,7 +42,7 @@ public class playViewController extends profileViewController {
         noteGenerator = new NoteGenerator();
         nextRoundStarts = true;
         setChoiceBoxItems();
-        intervalChoiceBox.setDisable(true);
+        answerChoiceBox.setDisable(true);
     }
 
     /**
@@ -51,13 +51,13 @@ public class playViewController extends profileViewController {
     public void setChoiceBoxItems() {
         for (int i = 0; i < 12; i++) {
             Interval interval = integerToInterval(i+1);
-            intervalChoiceBox.getItems().add(interval);
+            answerChoiceBox.getItems().add(interval);
         }
-        intervalChoiceBox.setOnAction(event -> {
+        answerChoiceBox.setOnAction(event -> {
             if (!answerChecked) {
-                selectedInterval = (Interval) intervalChoiceBox.getSelectionModel().getSelectedItem();
+                selectedInterval = (Interval) answerChoiceBox.getSelectionModel().getSelectedItem();
                 checkIfAnswerCorrect();
-                intervalChoiceBox.getSelectionModel().clearSelection();
+                answerChoiceBox.getSelectionModel().clearSelection();
             }
         });
     }
@@ -83,12 +83,12 @@ public class playViewController extends profileViewController {
         }
         if (nextRoundStarts) {
             feedbackLabel.setText("");
-            intervalChoiceBox.setDisable(false);
+            answerChoiceBox.setDisable(false);
             generateNotes();
             correctInterval = calculateInterval(note1, note2);
         }
         if (answerChecked) {
-            intervalChoiceBox.setDisable(true);
+            answerChoiceBox.setDisable(true);
         }
         nextRoundStarts = false;
         playButtonPressed = true;
@@ -120,7 +120,7 @@ public class playViewController extends profileViewController {
             }
         }
         answerChecked = true;
-        intervalChoiceBox.setDisable(true);
+        answerChoiceBox.setDisable(true);
         nextButton.setVisible(true);
 
         DAO.getInstance().saveGame(gameType, selectedInterval, correctInterval);
@@ -139,7 +139,7 @@ public class playViewController extends profileViewController {
      */
     @FXML
     private void nextRound() {
-        intervalChoiceBox.setDisable(false);
+        answerChoiceBox.setDisable(false);
         answerChecked = false;
         nextRoundStarts = true;
         nextButton.setVisible(false);

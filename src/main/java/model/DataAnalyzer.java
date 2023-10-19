@@ -68,8 +68,6 @@ public class DataAnalyzer {
 
         for (int i = 0; i < flawCount.length; i++) {
             int totalCount = findTotalCountByInterval(list, integerToInterval(i+1));
-            System.out.println("totalcouht:" +totalCount);
-            System.out.println("flawcount"+flawCount[i]);
 
             if (totalCount != 0) {
                 if ((double) flawCount[i] / totalCount > biggestFlawValue) {

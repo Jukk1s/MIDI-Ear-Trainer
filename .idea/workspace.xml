@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Next Round button in Play View">
+    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Bug in &quot;biggest flaw&quot; fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/graphViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/graphViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/trainingViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/trainingViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DataAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataAnalyzer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DataAnalyzerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DataAnalyzerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PlayView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PlayView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TrainingView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TrainingView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697744389727</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Bug in &quot;biggest flaw&quot; fix">
+      <created>1697750925940</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1697750925940</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -288,7 +298,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="DAO class added. ProfileView.fxml added." />
     <MESSAGE value="Games are now saved into database." />
     <MESSAGE value="Total times played and average accuracy is now calculated and displayed on the ProfileView." />
     <MESSAGE value="Click count and accuracy are updated on ProfileView.fxml instantly without additional database queries." />
@@ -313,7 +322,8 @@
     <MESSAGE value="Training games are saved into DB" />
     <MESSAGE value="Note objects. Some functionality relocated from Controller to Model" />
     <MESSAGE value="Next Round button in Play View" />
-    <option name="LAST_COMMIT_MESSAGE" value="Next Round button in Play View" />
+    <MESSAGE value="Bug in &quot;biggest flaw&quot; fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug in &quot;biggest flaw&quot; fix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -24,7 +24,7 @@ import static utility.EnumConverter.*;
 public class trainingViewController {
 
     private Note noteA1, noteA2, noteB1, noteB2;
-    private boolean notesPlaying, answerChecked;
+    private boolean notesPlaying, answerChecked, nextRoundStarts;
     private Random rand;
     private static GameType gameType;
     private NotePlayer notePlayer;
@@ -38,7 +38,7 @@ public class trainingViewController {
     @FXML
     private ChoiceBox<String> answerChoiceBox;
     @FXML
-    private Button playButton1, playButton2;
+    private Button playButton1, playButton2, nextButton;
 
     /**
      * Sets the initial values and states for the class members.
@@ -49,6 +49,7 @@ public class trainingViewController {
         answerChecked = true;
         noteGenerator = new NoteGenerator();
         notePlayer = new NotePlayer();
+        nextRoundStarts = true;
         setIntervalToTrainChoiceBoxItems();
         setAnswerChoiceBoxItems();
         answerChoiceBox.setDisable(true);
@@ -128,10 +129,12 @@ public class trainingViewController {
         answerChecked = true;
         if (selectedInterval == correctInterval) {
             feedbackLabel.setText("Correct!");
+            User.increaseCorrectCount();
         } else {
             feedbackLabel.setText("Wrong.");
         }
         answerChoiceBox.setDisable(true);
+        nextButton.setVisible(true);
 
         DAO.getInstance().saveGame(gameType, selectedInterval, correctInterval);
         User.increaseClickCount();
@@ -153,11 +156,13 @@ public class trainingViewController {
         if (notesPlaying) {
             return;
         }
-        if (answerChecked) {
+        if (nextRoundStarts) {
+            feedbackLabel.setText("");
             generateNotes();
         }
         answerChoiceBox.setDisable(false);
-        feedbackLabel.setText("");
+        nextRoundStarts = false;
+
         answerChecked = false;
         new Thread(new Runnable() {
             @Override
@@ -181,7 +186,8 @@ public class trainingViewController {
         if (notesPlaying) {
             return;
         }
-        if (answerChecked) {
+        if (nextRoundStarts) {
+            feedbackLabel.setText("");
             generateNotes();
         }
         answerChoiceBox.setDisable(false);
@@ -199,5 +205,18 @@ public class trainingViewController {
             }
         }).start();
     }
+
+    /**
+     * A new game starts.
+     */
+    @FXML
+    private void nextRound() {
+        answerChoiceBox.setDisable(false);
+        answerChecked = false;
+        nextRoundStarts = true;
+        nextButton.setVisible(false);
+        feedbackLabel.setText("");
+    }
+
 
 }

@@ -102,7 +102,7 @@ public class profileViewController {
             biggestFlawLabel.setDisable(true);
             biggestFlawLabel.setText("-");
         } else {
-            biggestFlawLabel.setText(intervalToString(User.getBiggestFlaw()));
+            biggestFlawLabel.setText(User.getBiggestFlaw().toString());
         }
     }
 
