@@ -6,7 +6,7 @@ Simple app that aims to improve user's ear for music. Under development.
 - game where two random notes are played separately, and the user provides his/her guess for the interval between the notes
 - profile window that shows analyzed data from played games in a chosen time period
 - graph window that displays graphs based on analyzed game data
-- special game that focuses on the intervals the user has most trouble with (to-do)
+- special game that focuses on the intervals the user has most trouble with
 - user account creation / login at app startup (to-do)
 
 ## Tools used
