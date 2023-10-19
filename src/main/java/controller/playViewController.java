@@ -24,10 +24,10 @@ public class playViewController extends profileViewController {
     private NoteGenerator noteGenerator;
     private Note note1, note2;
     private Interval correctInterval, selectedInterval;
-    private boolean buttonPressed, notesPlaying, answerChecked;
+    private boolean playButtonPressed, notesPlaying, answerChecked, nextRoundStarts;
     private GameType gameType;
     @FXML
-    private Button playButton;
+    private Button playButton, nextButton;
     @FXML
     private ChoiceBox intervalChoiceBox;
     @FXML
@@ -40,7 +40,7 @@ public class playViewController extends profileViewController {
         gameType = GameType.GAME;
         notePlayer = new NotePlayer();
         noteGenerator = new NoteGenerator();
-        answerChecked = true;
+        nextRoundStarts = true;
         setChoiceBoxItems();
         intervalChoiceBox.setDisable(true);
     }
@@ -81,13 +81,17 @@ public class playViewController extends profileViewController {
         if (notesPlaying) {
             return;
         }
-        if (answerChecked) {
+        if (nextRoundStarts) {
+            feedbackLabel.setText("");
+            intervalChoiceBox.setDisable(false);
             generateNotes();
             correctInterval = calculateInterval(note1, note2);
         }
-        intervalChoiceBox.setDisable(false);
-        feedbackLabel.setText("");
-        buttonPressed = true;
+        if (answerChecked) {
+            intervalChoiceBox.setDisable(true);
+        }
+        nextRoundStarts = false;
+        playButtonPressed = true;
         answerChecked = false;
         new Thread(new Runnable() {
             @Override
@@ -108,7 +112,7 @@ public class playViewController extends profileViewController {
      */
     private void checkIfAnswerCorrect() {
         if (!answerChecked) {
-            if (buttonPressed && selectedInterval == correctInterval) {
+            if (playButtonPressed && selectedInterval == correctInterval) {
                 feedbackLabel.setText("Correct!");
                 User.increaseCorrectCount();
             } else {
@@ -117,6 +121,7 @@ public class playViewController extends profileViewController {
         }
         answerChecked = true;
         intervalChoiceBox.setDisable(true);
+        nextButton.setVisible(true);
 
         DAO.getInstance().saveGame(gameType, selectedInterval, correctInterval);
         User.increaseClickCount();
@@ -127,6 +132,18 @@ public class playViewController extends profileViewController {
         String accuracy = df.format(User.getAccuracy());
         static_accuracyLabel.setText(accuracy + " %");
         static_playCountLabel.setText(String.valueOf(User.getGameCount()));
+    }
+
+    /**
+     * A new game starts.
+     */
+    @FXML
+    private void nextRound() {
+        intervalChoiceBox.setDisable(false);
+        answerChecked = false;
+        nextRoundStarts = true;
+        nextButton.setVisible(false);
+        feedbackLabel.setText("");
     }
 
     /**

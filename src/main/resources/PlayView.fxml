@@ -26,6 +26,9 @@
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
+               <GridPane.margin>
+                  <Insets top="8.0" />
+               </GridPane.margin>
             </Label>
             <GridPane GridPane.rowIndex="1">
               <columnConstraints>
@@ -41,7 +44,7 @@
                         <Insets left="24.0" />
                      </GridPane.margin>
                   </ChoiceBox>
-                  <Button fx:id="playButton" mnemonicParsing="false" onAction="#playNotes" prefHeight="67.0" prefWidth="136.0" style="-fx-background-color: #21211f;" text="Play notes" textFill="#f5f3e1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <Button fx:id="playButton" mnemonicParsing="false" onAction="#playNotes" prefHeight="67.0" prefWidth="136.0" style="-fx-background-color: #21211f;" text="PLAY" textFill="#f5f3e1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
@@ -51,6 +54,11 @@
                   </Button>
                </children>
             </GridPane>
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextRound" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #21211f;" text="NEXT" textFill="#f5f3e1" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
    </children>

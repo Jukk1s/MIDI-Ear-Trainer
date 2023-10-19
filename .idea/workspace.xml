@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Training games are saved into DB">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Calculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Note.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/NoteGenerator.java" afterDir="false" />
+    <list default="true" id="49932baf-bf09-4800-8b20-b342e576e4a8" name="Changes" comment="Note objects. Some functionality relocated from Controller to Model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/playViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/profileViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/trainingViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/trainingViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/NotePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/NotePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PlayView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PlayView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,8 +257,26 @@
       <option name="project" value="LOCAL" />
       <updated>1697554778441</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Note objects. Some functionality relocated from Controller to Model">
+      <created>1697739957331</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1697739957331</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="A simple version of the app's basic functionality." />
@@ -290,7 +303,8 @@
     <MESSAGE value="Stylizations" />
     <MESSAGE value="First version of Training View and supporting methods." />
     <MESSAGE value="Training games are saved into DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Training games are saved into DB" />
+    <MESSAGE value="Note objects. Some functionality relocated from Controller to Model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Note objects. Some functionality relocated from Controller to Model" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
