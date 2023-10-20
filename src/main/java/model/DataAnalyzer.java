@@ -71,7 +71,7 @@ public class DataAnalyzer {
 
             if (totalCount != 0) {
                 if ((double) flawCount[i] / totalCount > biggestFlawValue) {
-                    biggestFlawValue = flawCount[i];
+                    biggestFlawValue = (double) flawCount[i] / totalCount;
                     biggestFlaw = integerToInterval(i+1);
                 }
             }
